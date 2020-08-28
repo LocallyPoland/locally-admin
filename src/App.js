@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import Layout from "./pages/Layout/Layout";
+import ActiveOrdersPage from "./pages/ActiveOrdersPage/ActiveOrdersPage";
+import EndedOrdersPage from "./pages/EndedOrdersPage/EndedOrdersPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter history={{}}>
+            <Switch>
+                <Route path="/" component={Layout} exact />
+                <Route path="/active-orders" component={ActiveOrdersPage} />
+                <Route path="/ended-orders" component={EndedOrdersPage} />
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;

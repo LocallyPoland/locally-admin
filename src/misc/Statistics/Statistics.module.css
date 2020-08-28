@@ -1,0 +1,66 @@
+.statistics__inner {
+    width: 100%;
+}
+
+.statistics__buttons__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statistics__button__item {
+    width: 33.33333%;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.statistics__button__item__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistics__title {
+    width: 100%;
+    font-size: 36px;
+    font-weight: 700;
+    border-bottom: 1px solid #696897;
+}
+
+.statistic__content {
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.statistic__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statistic__name {
+    font-size: 24px;
+}
+
+.statistic__value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.statistic__among {
+    padding-top: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #4643D2;
+}
+
+.chart__container {
+    width: 100%;
+    height: 500px;
+}

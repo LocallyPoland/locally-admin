@@ -1,0 +1,131 @@
+.main__container {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+    max-height: 100px;
+}
+
+.header__inner {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header__title {
+    width: 33.33333%;
+    white-space: nowrap;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.header__user {
+    width: 33.33333%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header__user__name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #4643d2;
+}
+
+.header__user__avatar {
+    height: 100px;
+}
+
+.user__avatar {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #4643d2;
+    border-radius: 50%;
+}
+
+.orders__container {
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.orders__column {
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order__title__wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.column__title {
+    padding: 20px 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.column__link {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.column__link:hover {
+    text-decoration: underline;
+}
+
+.link__text {
+    font-size: 18px;
+    color: #4643d2;
+}
+
+.link__img {
+    padding: 10px;
+}
+
+.settings__container,
+.statistics__container {
+    width: 100%;
+    padding: 20px 80px;
+}
+
+.settings__title,
+.statistics__title {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 1300px) {
+    .header__inner {
+        justify-content: space-between;
+    }
+
+    .header__title {
+        width: 50%;
+    }
+
+    .header__user {
+        width: 50%;
+    }
+}

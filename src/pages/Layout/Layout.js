@@ -25,14 +25,12 @@ const Layout = () => {
                         <div className={s.header__user__name}>
                             jar021203@gmail.com
                         </div>
-                        <div className={s.header__user__avatar}>
-                            <img
-                                className={s.user__avatar}
-                                src={UserAvatar}
-                                alt="UserAvatar"
-                                onClick={showModal}
-                            />
-                        </div>
+                        <img
+                            className={s.user__avatar}
+                            src={UserAvatar}
+                            alt="UserAvatar"
+                            onClick={showModal}
+                        />
                     </div>
                 </div>
             </header>

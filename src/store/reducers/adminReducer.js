@@ -1,4 +1,4 @@
-import SET_ACTIVE_ORDERS from "../actions/actionTypes";
+import { SET_ACTIVE_ORDERS } from "../actions/actionTypes";
 
 const initialState = { orders: [] };
 

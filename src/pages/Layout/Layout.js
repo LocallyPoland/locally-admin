@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import s from "./Layout.module.css";
 import UserAvatar from "../../assets/images/avatar.jpg";
 import ActiveOrders from "../../misc/ActiveOrders/ActiveOrders";
-import EndedOrders from "../../misc/EndedOrders/EndedOrders";
 import SettingsForm from "../../misc/SettingsForm/SettingsForm";
 import Statistics from "../../misc/Statistics/Statistics";
 import ModalWindow from "../../misc/ModalWindow/ModalWindow";
@@ -91,6 +90,14 @@ const Layout = () => {
           profitQuarterPrice="123"
           profitYearPrice="123"
           profitFullprice="123"
+          userMonthQuarantine="123"
+          userQuarterQuarantine="132"
+          userYearQuarantine="8645"
+          userFullQuarantine="123"
+          orderMonthQuarantine="58"
+          orderQuarterQuarantine="351"
+          orderYearQuarantine="45"
+          orderFullQuarantine="56"
         />
       </div>
     </div>

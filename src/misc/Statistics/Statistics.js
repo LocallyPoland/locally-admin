@@ -9,6 +9,14 @@ const Statistics = ({
   profitQuarterPrice,
   profitYearPrice,
   profitFullprice,
+  userMonthQuarantine,
+  userQuarterQuarantine,
+  userYearQuarantine,
+  userFullQuarantine,
+  orderMonthQuarantine,
+  orderQuarterQuarantine,
+  orderYearQuarantine,
+  orderFullQuarantine,
 }) => {
   return (
     <div className={s.statistics__inner}>
@@ -44,17 +52,23 @@ const Statistics = ({
               <div className={s.statistic__content}>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Miesiąc:</div>
-                  <div className={s.statistic__value}>112</div>
+                  <div className={s.statistic__value}>
+                    {userMonthQuarantine}
+                  </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Kwartal:</div>
-                  <div className={s.statistic__value}>350</div>
+                  <div className={s.statistic__value}>
+                    {userQuarterQuarantine}
+                  </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Rok:</div>
-                  <div className={s.statistic__value}>1550 zł</div>
+                  <div className={s.statistic__value}>{userYearQuarantine}</div>
                 </div>
-                <div className={s.statistic__among}>5567 uż.</div>
+                <div className={s.statistic__among}>
+                  {userFullQuarantine} uż.
+                </div>
               </div>
             </div>
           </ActiveOrderWrapper>
@@ -66,17 +80,25 @@ const Statistics = ({
               <div className={s.statistic__content}>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Miesiąc:</div>
-                  <div className={s.statistic__value}>250</div>
+                  <div className={s.statistic__value}>
+                    {orderMonthQuarantine}
+                  </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Kwartal:</div>
-                  <div className={s.statistic__value}>842</div>
+                  <div className={s.statistic__value}>
+                    {orderQuarterQuarantine}
+                  </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Rok:</div>
-                  <div className={s.statistic__value}>2547</div>
+                  <div className={s.statistic__value}>
+                    {orderYearQuarantine}
+                  </div>
                 </div>
-                <div className={s.statistic__among}>8207 zamówień</div>
+                <div className={s.statistic__among}>
+                  {orderFullQuarantine} zamówień
+                </div>
               </div>
             </div>
           </ActiveOrderWrapper>

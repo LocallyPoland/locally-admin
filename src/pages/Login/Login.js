@@ -17,7 +17,7 @@ const Auth = ({
       <div className={s.login}>
         <div className={s.login__container}>
           <label className={s.label}>e-mail</label>
-          <input
+          <input className={s.input}
             placeholder="vadvit009@gmail.com"
             onChange={handleChange}
             value={values.email}

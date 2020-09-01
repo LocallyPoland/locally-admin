@@ -3,7 +3,10 @@ import s from "./Login.module.css";
 import { withFormik } from "formik";
 import { connect } from "react-redux";
 import classnames from "classnames";
-const Auth = ({
+import { loginAction } from "../../store/actions/adminActions";
+import { Redirect, useHistory } from "react-router-dom";
+
+const Login = ({
   values,
   touched,
   errors,
@@ -11,13 +14,15 @@ const Auth = ({
   handleBlur,
   handleSubmit,
 }) => {
+  const history = useHistory();
   return (
     <form onSubmit={handleSubmit} className={s.main__container}>
       <div className={s.header__title}>Logovanie</div>
       <div className={s.login}>
         <div className={s.login__container}>
           <label className={s.label}>e-mail</label>
-          <input className={s.input}
+          <input
+            className={s.input}
             placeholder="vadvit009@gmail.com"
             onChange={handleChange}
             value={values.email}
@@ -67,21 +72,19 @@ const formikHOC = withFormik({
 
     return errors;
   },
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+  handleSubmit: async (values, { props: { login, history } }) => {
+    const isSuccess = await login(values);
+    if (isSuccess) {
+      history.push("./");
+    }
   },
-
-  displayName: "BasicForm",
-})(Auth);
+})(Login);
 
 const mapStateToProps = (state) => {
   return {};
 };
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return { login: (admin) => dispatch(loginAction(admin)) };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(formikHOC);

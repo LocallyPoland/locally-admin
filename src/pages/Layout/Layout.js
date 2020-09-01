@@ -47,15 +47,17 @@ const Layout = () => {
               />
             </Link>
           </div>
-          <ActiveOrders
-            orderNumber="11"
-            orderType="Paczka"
-            orderWeight="21"
-            orderTime="14:88"
-            orderStartPlace="ul. Rynek 3"
-            orderFinishPlace="ul. Lewakowskiego 12/55"
-            orderPrice="28"
-          />
+          <button onClick={showModal} className={s.order__button}>
+            <ActiveOrders
+              orderNumber="11"
+              orderType="Paczka"
+              orderWeight="21"
+              orderTime="14:88"
+              orderStartPlace="ul. Rynek 3"
+              orderFinishPlace="ul. Lewakowskiego 12/55"
+              orderPrice="28"
+            />
+          </button>
         </div>
         <div className={s.orders__column}>
           <div className={s.order__title__wrapper}>
@@ -69,14 +71,16 @@ const Layout = () => {
               />
             </Link>
           </div>
-          <ActiveOrders
-            orderType="Paczka"
-            orderWeight="21"
-            orderTime="14:88"
-            orderStartPlace="ul. Rynek 3"
-            orderFinishPlace="ul. Lewakowskiego 12/55"
-            orderPrice="28"
-          />
+          <button onClick={showModal} className={s.order__button}>
+            <ActiveOrders
+              orderType="Paczka"
+              orderWeight="21"
+              orderTime="14:88"
+              orderStartPlace="ul. Rynek 3"
+              orderFinishPlace="ul. Lewakowskiego 12/55"
+              orderPrice="28"
+            />
+          </button>
         </div>
       </div>
       <div className={s.settings__container}>

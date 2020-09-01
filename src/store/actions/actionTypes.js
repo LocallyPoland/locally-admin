@@ -1,3 +1,3 @@
-export const SET_ACTIVE_ORDERS = "SET_ACTIVE_ORDERS";
-export const SET_ORDERS_HISTORY = "SET_ORDERS_HISTORY";
-export const SET_LOADING = "SET_LOADING";
+export const SET_ORDER = "SET_ORDERS";
+export const SET_SINGLE_ORDER = "SET_SINGLE_ORDERS";
+export const SET_ADMIN = "SET_ADMIN";

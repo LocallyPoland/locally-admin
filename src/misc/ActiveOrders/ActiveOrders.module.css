@@ -1,144 +1,144 @@
 .active__orders {
-    width: 540px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  width: 540px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .active__orders__inner {
-    height: 100%;
-    max-height: 600px;
-    overflow-y: scroll;
+  height: 100%;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 
 .active__orders__inner::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .card__inner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card__header {
-    width: 100%;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #696897;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #696897;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card__title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #4643d2;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4643d2;
 }
 
 .card__status {
-    font-size: 16px;
-    color: #4643d2;
+  font-size: 16px;
+  color: #4643d2;
 }
 
 .card__content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card__content__top,
 .card__content__bottom {
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 
 .card__order__type {
-    font-size: 20px;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .card__order__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .card__order__weight,
 .card__order__time {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .order__weight__text,
 .order__time__text {
-    margin: 0 5px;
-    font-size: 18px;
+  margin: 0 5px;
+  font-size: 18px;
 }
 
 .order__weight__value,
 .order__time__value {
-    font-size: 20px;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .card__order__adress {
-    font-size: 20px;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .card__order__adress__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card__order__from__to {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card__order__from,
 .card__order__to {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .card__order__connector__img {
-    padding: 10px;
+  padding: 10px;
 }
 
 .card__order__adress {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .card__order__start__adress,
 .card__order__end__adress {
-    font-size: 20px;
-    font-weight: 700;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .card__price {
-    width: 100%;
-    margin-top: 10px;
-    text-align: left;
-    font-size: 24px;
-    font-weight: 700;
-    color: #4643d2;
+  width: 100%;
+  margin-top: 10px;
+  text-align: left;
+  font-size: 24px;
+  font-weight: 700;
+  color: #4643d2;
 }

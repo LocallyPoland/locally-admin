@@ -13,14 +13,8 @@ const ActiveOrders = ({
   orderFinishPlace,
   orderPrice,
 }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
-
-  const showModal = () => {
-    setModalVisible(true);
-  };
-
   return (
-    <div className={s.active__orders} onClick={showModal}>
+    <div className={s.active__orders}>
       <div className={s.active__orders__inner}>
         <ActiveOrderWrapper>
           <div className={s.card__inner}>

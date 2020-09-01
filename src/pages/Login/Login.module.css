@@ -61,7 +61,7 @@
   border: 1px solid red;
 }
 
-/* @media (max-width: 550px) {
+@media (max-width: 550px) {
   .main__container {
     width: 100%;
     flex-wrap: wrap;
@@ -70,4 +70,4 @@
     display: flex;
     justify-content: center;
   }
-} */
+}

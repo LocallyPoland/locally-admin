@@ -1,12 +1,12 @@
-import { SET_ACTIVE_ORDERS } from "../actions/actionTypes";
+import { SET_ADMIN } from "../actions/actionTypes";
 
-const initialState = { orders: [] };
+const initialState = { email: "", password: "" };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_ACTIVE_ORDERS:
+    case SET_ADMIN:
       return {
-        orders: action.orders,
+        ...action.admin,
       };
 
     default:

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import s from "./ActiveOrders.module.css";
 import ConnectorImg from "../../assets/images/connector.svg";
 import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper";
-import ModalWindow from "../ModalWindow/ModalWindow";
 
 const ActiveOrders = ({
   orderNumber,

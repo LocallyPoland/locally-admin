@@ -1,7 +1,7 @@
 .modal {
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.625rem);
     background-color: #3333339a;
     position: fixed;
     top: 0;
@@ -22,15 +22,15 @@
 .modal__inner {
     width: 100%;
     height: 100%;
-    padding: 100px;
+    padding: 1.25rem 5rem;
 }
 
 .modal__container {
     width: 100%;
     height: 100%;
     background-color: #e9e9ff;
-    border-radius: 40px;
-    padding: 40px;
+    border-radius: 2.5rem;
+    padding: 2.5rem;
     position: relative;
     display: flex;
     justify-content: center;
@@ -38,15 +38,15 @@
 }
 
 .modal__close__btn {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     margin: 0;
-    padding: 5px;
+    padding: 0.3125rem;
     background-color: transparent;
     border: none;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 1.25rem;
+    right: 1.25rem;
     z-index: 110;
     cursor: pointer;
     transition: 0.2s linear;
@@ -68,7 +68,7 @@
 .modal__left__side,
 .modal__right__side {
     width: 50%;
-    padding: 20px;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,9 +77,9 @@
 
 .modal__side__title {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     text-align: center;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 

@@ -1,16 +1,16 @@
 .active__orders {
-  width: 540px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+    width: 33.75rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .active__orders__inner {
-  height: 100%;
-  max-height: 600px;
-  overflow-y: scroll;
+    height: 100%;
+    max-height: 37.5rem;
+    overflow-y: scroll;
 }
 
 .active__orders__inner::-webkit-scrollbar {
@@ -27,23 +27,23 @@
 }
 
 .card__header {
-  width: 100%;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #696897;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.0625rem solid #696897;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card__title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #4643d2;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4643d2;
 }
 
 .card__status {
-  font-size: 16px;
-  color: #4643d2;
+    font-size: 1rem;
+    color: #4643d2;
 }
 
 .card__content {
@@ -56,16 +56,16 @@
 
 .card__content__top,
 .card__content__bottom {
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
+    width: 100%;
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
 }
 
 .card__order__type {
-  font-size: 20px;
-  font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .card__order__info {
@@ -84,19 +84,19 @@
 
 .order__weight__text,
 .order__time__text {
-  margin: 0 5px;
-  font-size: 18px;
+    margin: 0 0.3125rem;
+    font-size: 1.125rem;
 }
 
 .order__weight__value,
 .order__time__value {
-  font-size: 20px;
-  font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .card__order__adress {
-  font-size: 20px;
-  font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .card__order__adress__wrapper {
@@ -114,11 +114,11 @@
 
 .card__order__from,
 .card__order__to {
-  font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .card__order__connector__img {
-  padding: 10px;
+    padding: 0.625rem;
 }
 
 .card__order__adress {
@@ -130,15 +130,35 @@
 
 .card__order__start__adress,
 .card__order__end__adress {
-  font-size: 20px;
-  font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 .card__price {
-  width: 100%;
-  margin-top: 10px;
-  text-align: left;
-  font-size: 24px;
-  font-weight: 700;
-  color: #4643d2;
+    width: 100%;
+    margin-top: 0.625rem;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4643d2;
+}
+
+@media only screen and (max-width: 700px) {
+    .card__order__connector__img {
+        height: 3.5rem;
+    }
+
+    .card__order__type {
+        margin-right: 10px;
+    }
+
+    .card__order__start__adress,
+    .card__order__end__adress {
+        font-size: 1.1rem;
+    }
+
+    .card__order__from,
+    .card__order__to {
+        font-size: 1.1rem;
+    }
 }

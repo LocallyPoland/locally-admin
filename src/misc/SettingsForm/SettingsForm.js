@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import s from "./SettingsForm.module.css";
+import addNotification from "react-push-notification";
 import { withFormik } from "formik";
 import { connect } from "react-redux";
+import Logo from "../../assets/images/symbol.png";
 import {
     getSettingsAction,
     patchSettingsAction,
@@ -19,11 +21,25 @@ const SettingsForm = ({
         e.preventDefault();
 
         const conf = window.confirm("Podtwierdzić zmiany?");
-        if (conf) {
-            handleSubmit();
-        }
-        // if (conf) console.log("Confirmed!");
+        if (conf) handleSubmit();
     };
+
+    const sendNotification = () => {
+        addNotification({
+            title: "Locally",
+            subtitle: "Nowe zamówienie",
+            message: "Paczka 10kg z ul.Marszalkowska 1/20 do ul.Maryniarska 53",
+            theme: "darkblue",
+            duration: 10000,
+            native: true,
+            icon: Logo,
+        });
+    };
+
+    setTimeout(() => {
+        sendNotification();
+    }, 5000);
+
     // useEffect(() => {
     //   setSettings(aToken);
     // }, [aToken]);

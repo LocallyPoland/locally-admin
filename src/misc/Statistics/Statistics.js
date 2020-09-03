@@ -114,8 +114,7 @@ const Statistics = ({
                   </div>
                 </div>
                 <div className={s.statistic__among}>
-                  {stats.data.ordersLengthPerAllTime}
-                  zamówień
+                  {stats.data.ordersLengthPerAllTime} zamówień
                 </div>
               </div>
             </div>
@@ -123,9 +122,9 @@ const Statistics = ({
         </div>
       </div>
       <div className={s.chart__container}>
-        <EndedOrderWrapper>
+        <div className={s.card}>
           <Chart {...{ stats }} />
-        </EndedOrderWrapper>
+        </div>
       </div>
     </div>
   );

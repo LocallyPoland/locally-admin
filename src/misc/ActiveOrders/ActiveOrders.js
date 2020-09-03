@@ -5,17 +5,29 @@ import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper"
 import { getOrdersAction } from "../../store/actions/orderActions";
 import { connect } from "react-redux";
 
-const ActiveOrders = ({ orderItem }) => {
-  const {
-    orderNumber,
-    orderType,
-    orderWeight,
-    orderTime,
-    orderStartPlace,
-    orderFinishPlace,
-    orderPrice,
-    _id,
-  } = orderItem;
+const ActiveOrders = ({
+  orderNumber,
+  orderType,
+  orderWeight,
+  orderTime,
+  orderStartPlace,
+  orderFinishPlace,
+  orderPrice,
+  getOrders,
+  _id,
+}) => {
+  // const {
+  //   orderNumber,
+  //   orderType,
+  //   orderWeight,
+  //   orderTime,
+  //   orderStartPlace,
+  //   orderFinishPlace,
+  //   orderPrice,
+  //   getOrders,
+  //   _id,
+  // } = orderItem;
+
   return (
     <div className={s.active__orders}>
       <div className={s.active__orders__inner}>
@@ -42,7 +54,9 @@ const ActiveOrders = ({ orderItem }) => {
                 </div>
               </div>
               <div className={s.card__content__bottom}>
-                <div className={s.card__order__type}>Adresy</div>
+                {/* <div className={s.card__order__type}>
+                                    Adresy
+                                </div> */}
                 <div className={s.card__order__adress__wrapper}>
                   <div className={s.card__order__from__to}>
                     <div className={s.card__order__from}>z</div>

@@ -45,10 +45,10 @@ const ActiveOrdersPage = ({ getOrders, orders }) => {
           orderFinishPlace="ul. Lewakowskiego 12/55"
           orderPrice="28"
         /> */}
-        {orders?.map((orderItem, i) => (
+        {/* {orders?.map((orderItem, i) => (
           <ActiveOrders {...{ orderItem }} key={orderItem._id} />
-        ))}
-        {/* <ActiveOrders
+        ))} */}
+        <ActiveOrders
           orderNumber="11"
           orderType="Paczka"
           orderWeight="21"
@@ -56,7 +56,7 @@ const ActiveOrdersPage = ({ getOrders, orders }) => {
           orderStartPlace="ul. Rynek 3"
           orderFinishPlace="ul. Lewakowskiego 12/55"
           orderPrice="28"
-        /> */}
+        />
       </div>
     </div>
   );

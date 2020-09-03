@@ -14,19 +14,23 @@ const ActiveOrders = ({
   orderFinishPlace,
   orderPrice,
   getOrders,
+  _id,
 }) => {
+  // const {
+  //   orderNumber,
+  //   orderType,
+  //   orderWeight,
+  //   orderTime,
+  //   orderStartPlace,
+  //   orderFinishPlace,
+  //   orderPrice,
+  //   getOrders,
+  //   _id,
+  // } = orderItem;
+
   return (
     <div className={s.active__orders}>
       <div className={s.active__orders__inner}>
-        {/* {orders.map((order, i) => {
-              const {
-                _id,
-                createdAt,
-                paymentType,
-                delivery,
-                status,
-                products,
-              } = order; */}
         <ActiveOrderWrapper>
           <div className={s.card__inner}>
             <div className={s.card__header}>
@@ -50,7 +54,9 @@ const ActiveOrders = ({
                 </div>
               </div>
               <div className={s.card__content__bottom}>
-                <div className={s.card__order__type}>Adresy</div>
+                {/* <div className={s.card__order__type}>
+                                    Adresy
+                                </div> */}
                 <div className={s.card__order__adress__wrapper}>
                   <div className={s.card__order__from__to}>
                     <div className={s.card__order__from}>z</div>
@@ -79,12 +85,4 @@ const ActiveOrders = ({
     </div>
   );
 };
-// const mapStateToProps = (state) => {
-//   return { orders: state.admin.orders };
-// };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getOrders: () => dispatch(getOrdersAction()),
-//   };
-// };
 export default ActiveOrders;

@@ -1,206 +1,233 @@
 .main__container {
-  width: 100%;
-  height: 100%;
-  padding-bottom: 3.125rem;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 3.125rem;
 }
 
 .header {
-  width: 100%;
-  height: 100%;
-  max-height: 6.25rem;
+    width: 100%;
+    height: 100%;
+    max-height: 6.25rem;
 }
 
 .header__inner {
-  width: 100%;
-  height: 100%;
-  padding: 2.5rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .header__title {
-  width: 33.33333%;
-  white-space: nowrap;
-  font-size: 2.5rem;
-  font-weight: 700;
+    width: 33.33333%;
+    white-space: nowrap;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 .header__user {
-  width: 33.33333%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    width: 33.33333%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .header__user__name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #4643d2;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4643d2;
 }
 
 .user__avatar {
-  width: 6.25rem;
-  height: 6.25rem;
-  border: 0.1875rem solid #4643d2;
-  border-radius: 50%;
+    width: 6.25rem;
+    height: 6.25rem;
+    border: 0.1875rem solid #4643d2;
+    border-radius: 50%;
 }
 
 .orders__container {
-  width: 100%;
-  height: 100%;
-  margin-top: 2.5rem;
-  padding: 1.25rem 5rem;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 2.5rem;
+    padding: 1.25rem 5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .orders__column {
-  width: 50%;
-  padding: 1.875rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    height: 25rem;
+    /* padding: 1.875rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.orders__column::-webkit-scrollbar {
+    display: none;
+}
+
+.orders__container__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .order__title__wrapper {
-  width: 100%;
-  max-width: 31.25rem;
-  display: flex;
-  justify-content: space-between;
+    width: 100%;
+    max-width: 31.25rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .column__title {
-  padding: 1.25rem 0;
-  font-size: 1.625rem;
-  font-weight: 700;
+    padding: 1.25rem 0;
+    font-size: 1.625rem;
+    font-weight: 700;
 }
 
 .column__link {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .column__link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .link__text {
-  font-size: 1.125rem;
-  color: #4643d2;
+    font-size: 1.125rem;
+    color: #4643d2;
 }
 
 .link__img {
-  padding: 0.625rem;
+    padding: 0.625rem;
+}
+
+.order__button {
+    margin: 0;
+    border: none;
+    background-color: transparent;
 }
 
 .settings__container,
 .statistics__container {
-  width: 100%;
-  padding: 1.25rem 5rem;
+    width: 100%;
+    padding: 1.25rem 5rem;
 }
 
 .settings__title,
 .statistics__title {
-  white-space: nowrap;
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 @media only screen and (max-width: 1300px) {
-  .header__inner {
-    justify-content: space-between;
-  }
+    .header__inner {
+        justify-content: space-between;
+    }
 
-  .header__title {
-    width: 50%;
-  }
+    .header__title {
+        width: 50%;
+    }
 
-  .header__user {
-    width: 50%;
-  }
+    .header__user {
+        width: 50%;
+    }
 
-  .orders__container {
-    padding: 1.25rem 2.5rem;
-  }
+    .orders__container {
+        padding: 1.25rem 2.5rem;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
-  .header__inner {
-    padding: 1.25rem 0.625rem;
-  }
+    .header__inner {
+        padding: 1.25rem 0.625rem;
+    }
 
-  .header__title {
-    font-size: 1.625rem;
-  }
+    .header__title {
+        font-size: 1.625rem;
+    }
 
-  .header__user__name {
-    font-size: 1rem;
-  }
+    .header__user__name {
+        font-size: 1rem;
+    }
 
-  .user__avatar {
-    width: 4.375rem;
-    height: 4.375rem;
-  }
+    .user__avatar {
+        width: 4.375rem;
+        height: 4.375rem;
+    }
 
-  .orders__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    .orders__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-  .orders__column {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .orders__column {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
 
-  .settings__container,
-  .statistics__container {
-    padding: 1rem 2.5rem;
-  }
+    .settings__container,
+    .statistics__container {
+        padding: 1rem 2.5rem;
+    }
 }
 
 @media only screen and (max-width: 700px) {
-  .header__user__name {
-    display: none;
-  }
+    .header__user__name {
+        display: none;
+    }
 
-  .header__user {
-    justify-content: flex-end;
-  }
+    .header__user {
+        justify-content: flex-end;
+    }
 
-  .user__avatar {
-    width: 3.75rem;
-    height: 3.75rem;
-  }
+    .user__avatar {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
 
-  .orders__column {
-    padding: 0;
-  }
+    .orders__column {
+        height: 23rem;
+        padding: 0;
+    }
 
-  .column__title {
-    font-size: 1.5rem;
-  }
+    .column__title {
+        font-size: 1.5rem;
+    }
 
-  .link__text {
-    font-size: 1rem;
-  }
+    .link__text {
+        font-size: 1rem;
+    }
 
-  .settings__container,
-  .statistics__container {
-    padding: 1rem;
-  }
+    .settings__container,
+    .statistics__container {
+        padding: 1rem;
+    }
 }
 
 @media only screen and (max-width: 400px) {
-  .header__title {
-    font-size: 1.5rem;
-  }
+    .header__title {
+        font-size: 1.5rem;
+    }
+
+    .orders__container {
+        padding: 0.5rem 1.25rem;
+    }
 }

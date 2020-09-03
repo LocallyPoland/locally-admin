@@ -4,7 +4,7 @@ import ActiveOrders from "../../misc/ActiveOrders/ActiveOrders";
 import { connect } from "react-redux";
 import { getOrdersAction } from "../../store/actions/orderActions";
 
-const ActiveOrdersPage = ({ getOrders }) => {
+const ActiveOrdersPage = ({ getOrders, orders }) => {
   useEffect(() => {
     (async () => {
       await getOrders();
@@ -18,7 +18,7 @@ const ActiveOrdersPage = ({ getOrders }) => {
         </div>
       </header>
       <div className={s.container}>
-        <ActiveOrders
+        {/* <ActiveOrders
           orderNumber="11"
           orderType="Paczka"
           orderWeight="21"
@@ -44,7 +44,10 @@ const ActiveOrdersPage = ({ getOrders }) => {
           orderStartPlace="ul. Rynek 3"
           orderFinishPlace="ul. Lewakowskiego 12/55"
           orderPrice="28"
-        />
+        /> */}
+        {/* {orders?.map((orderItem, i) => (
+          <ActiveOrders {...{ orderItem }} key={orderItem._id} />
+        ))} */}
         <ActiveOrders
           orderNumber="11"
           orderType="Paczka"
@@ -59,7 +62,7 @@ const ActiveOrdersPage = ({ getOrders }) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { orders: state.admin.orders };
+  return { orders: state.orders };
 };
 const mapDispatchToProps = (dispatch) => {
   return {

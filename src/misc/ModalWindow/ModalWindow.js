@@ -26,7 +26,15 @@ const ModalWindow = ({ isVisible, setVisibility }) => {
           <div className={s.modal__left__side}>
             <div className={s.modal__side__title}>Szczegóły zamówienia</div>
             <div className={s.modal__details__container}>
-              <ActiveOrders />
+              <ActiveOrders
+                orderNumber="11"
+                orderType="Paczka"
+                orderWeight="21"
+                orderTime="14:88"
+                orderStartPlace="ul. Rynek 3"
+                orderFinishPlace="ul. Lewakowskiego 12/55"
+                orderPrice="28"
+              />
             </div>
           </div>
           <div className={s.modal__right__side}>

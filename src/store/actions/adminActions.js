@@ -1,4 +1,4 @@
-import { SET_ADMIN } from "./actionTypes";
+import { SET_ADMIN, LOGOUT } from "./actionTypes";
 import { loginRequest } from "../api/api";
 
 export const loginAction = (data) => {
@@ -17,5 +17,13 @@ export const loginAction = (data) => {
     //   return console.log("errooor");
     // }
     return response.status === 200;
+  };
+};
+export const logoutAction = () => {
+  document.cookie = "token=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+  document.cookie = "aToken=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+  // localStorage.removeItem("login");
+  return {
+    type: LOGOUT,
   };
 };

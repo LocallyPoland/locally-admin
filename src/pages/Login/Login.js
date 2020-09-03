@@ -78,7 +78,7 @@ const formikHOC = withFormik({
 })(Login);
 
 const mapStateToProps = (state) => {
-  // return { login: state.admin.login };
+  return {};
 };
 const mapDispatchToProps = (dispatch) => {
   return { login: (admin) => dispatch(loginAction(admin)) };

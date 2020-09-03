@@ -9,6 +9,7 @@ export const getStatsAction = (data) => {
     if (response.status === 200) {
       dispatch({ type: SET_STATS, stats: response.data });
     }
+    return response.status === 200;
   };
 };
 export const getUserStatsAction = (data) => {
@@ -18,5 +19,6 @@ export const getUserStatsAction = (data) => {
     if (response.status === 200) {
       dispatch({ type: SET_USER_STATS, users: response.data });
     }
+    return response.status === 200;
   };
 };

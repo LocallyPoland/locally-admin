@@ -9,6 +9,7 @@ export const getOrdersAction = () => {
     if (response.status === 200) {
       dispatch({ type: SET_ORDERS, orders: response.data });
     }
+    return response.status === 200;
   };
 };
 export const getSingleOrderAction = (id) => {

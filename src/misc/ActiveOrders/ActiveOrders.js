@@ -3,26 +3,17 @@ import s from "./ActiveOrders.module.css";
 import ConnectorImg from "../../assets/images/connector.svg";
 import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper";
 
-const ActiveOrders = ({
-  orderNumber,
-  orderType,
-  orderWeight,
-  orderTime,
-  orderStartPlace,
-  orderFinishPlace,
-  orderPrice,
-  _id,
-}) => {
-  // const {
-  //   orderNumber,
-  //   orderType,
-  //   orderWeight,
-  //   orderTime,
-  //   orderStartPlace,
-  //   orderFinishPlace,
-  //   orderPrice,
-  //   _id,
-  // } = orderItem;
+const ActiveOrders = ({ orderItem }) => {
+  const {
+    // orderNumber,
+    // orderType,
+    weight,
+    createdAt,
+    deliveryStreet,
+    deliveryCity,
+    sum,
+    _id,
+  } = orderItem;
 
   return (
     <div className={s.active__orders}>
@@ -30,22 +21,20 @@ const ActiveOrders = ({
         <ActiveOrderWrapper>
           <div className={s.card__inner}>
             <div className={s.card__header}>
-              <div className={s.card__title}>Zamówienie n.{orderNumber}</div>
+              <div className={s.card__title}>Zamówienie n. nema</div>
               <div className={s.card__status}>w trakcie</div>
             </div>
             <div className={s.card__content}>
               <div className={s.card__content__top}>
-                <div className={s.card__order__type}>{orderType}</div>
+                <div className={s.card__order__type}>nema</div>
                 <div className={s.card__order__info}>
                   <div className={s.card__order__weight}>
                     <div className={s.order__weight__text}>waga do:</div>
-                    <div className={s.order__weight__value}>
-                      {orderWeight} kg
-                    </div>
+                    <div className={s.order__weight__value}>{weight} kg</div>
                   </div>
                   <div className={s.card__order__time}>
                     <div className={s.order__time__text}>czas dostawy:</div>
-                    <div className={s.order__time__value}>{orderTime}</div>
+                    <div className={s.order__time__value}>{createdAt}</div>
                   </div>
                 </div>
               </div>
@@ -62,15 +51,15 @@ const ActiveOrders = ({
                   />
                   <div className={s.card__order__adress}>
                     <div className={s.card__order__start__adress}>
-                      {orderStartPlace}
+                      {deliveryStreet}
                     </div>
                     <div className={s.card__order__end__adress}>
-                      {orderFinishPlace}
+                      {deliveryCity}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className={s.card__price}>{orderPrice} zł</div>
+              <div className={s.card__price}>{sum} zł</div>
             </div>
           </div>
         </ActiveOrderWrapper>

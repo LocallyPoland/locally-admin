@@ -1,4 +1,4 @@
-import { SET_ADMIN } from "../actions/actionTypes";
+import { SET_ADMIN, LOGOUT } from "../actions/actionTypes";
 
 const initialState = { email: "", password: "", token: "" };
 
@@ -10,7 +10,10 @@ export default (state = initialState, action) => {
         email: action.admin.email,
         password: action.admin.password,
       };
-
+    case LOGOUT:
+      return {
+        initialState,
+      };
     default:
       return state;
   }

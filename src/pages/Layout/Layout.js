@@ -6,11 +6,18 @@ import SettingsForm from "../../misc/SettingsForm/SettingsForm";
 import Statistics from "../../misc/Statistics/Statistics";
 import ModalWindow from "../../misc/ModalWindow/ModalWindow";
 import ArrowForward from "../../assets/images/arrow-forward.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { ReactComponent as LogoutIcon } from "../../assets/images/logout.svg";
+import { logoutAction } from "../../store/actions/adminActions";
+import { connect } from "react-redux";
 
-const Layout = () => {
+const Layout = ({ logout }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-
+  const h = useHistory();
+  const Logout = () => {
+    logout();
+    h.push("/login");
+  };
   const showModal = () => {
     document.body.style.overflow = "hidden";
     setModalVisible(true);
@@ -24,11 +31,7 @@ const Layout = () => {
           <div className={s.header__user}>
             <div className={s.header__user__name}>jar021203@gmail.com</div>
             <div className={s.header__user__avatar}>
-              <img
-                className={s.user__avatar}
-                src={UserAvatar}
-                alt="UserAvatar"
-              />
+              <LogoutIcon className={s.user__logout} onClick={Logout} />
             </div>
           </div>
         </div>
@@ -132,4 +135,14 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logoutAction()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

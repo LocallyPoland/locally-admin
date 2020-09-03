@@ -4,7 +4,11 @@ import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper"
 import EndedOrderWrapper from "../../wrappers/OrderWrappers/EndedOrderWrapper";
 import Chart from "../Charts/Charts";
 import { connect } from "react-redux";
-import { getStatsAction } from "../../store/actions/statsAction";
+import {
+  getStatsAction,
+  getUseerStatsAction,
+  getUserStatsAction,
+} from "../../store/actions/statsAction";
 
 const Statistics = ({
   profitPrice,
@@ -20,12 +24,15 @@ const Statistics = ({
   orderYearQuarantine,
   orderFullQuarantine,
   getStats,
+  getUserStats,
   stats,
+  users,
 }) => {
   // const { ordersLengthPerMonth } = stats;
   useEffect(() => {
     (async () => {
       await getStats();
+      await getUserStats();
     })();
   }, []);
   console.log("stats ===", stats);
@@ -70,21 +77,23 @@ const Statistics = ({
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Miesiąc:</div>
                   <div className={s.statistic__value}>
-                    {userMonthQuarantine}
+                    {stats.users.usersPerMonth}
                   </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Kwartal:</div>
                   <div className={s.statistic__value}>
-                    {userQuarterQuarantine}
+                    {stats.users.usersPerQuarter}
                   </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Rok:</div>
-                  <div className={s.statistic__value}>{userYearQuarantine}</div>
+                  <div className={s.statistic__value}>
+                    {stats.users.usersPerYear}
+                  </div>
                 </div>
                 <div className={s.statistic__among}>
-                  {userFullQuarantine} uż.
+                  {stats.users.allUsers}uż.
                 </div>
               </div>
             </div>
@@ -135,6 +144,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getStats: () => dispatch(getStatsAction()),
+    getUserStats: () => dispatch(getUserStatsAction()),
   };
 };
 

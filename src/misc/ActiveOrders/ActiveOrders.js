@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import s from "./ActiveOrders.module.css";
 import ConnectorImg from "../../assets/images/connector.svg";
 import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper";
-import { getOrdersAction } from "../../store/actions/orderActions";
-import { connect } from "react-redux";
 
 const ActiveOrders = ({
   orderNumber,
@@ -13,7 +11,6 @@ const ActiveOrders = ({
   orderStartPlace,
   orderFinishPlace,
   orderPrice,
-  getOrders,
   _id,
 }) => {
   // const {
@@ -24,7 +21,6 @@ const ActiveOrders = ({
   //   orderStartPlace,
   //   orderFinishPlace,
   //   orderPrice,
-  //   getOrders,
   //   _id,
   // } = orderItem;
 
@@ -54,9 +50,6 @@ const ActiveOrders = ({
                 </div>
               </div>
               <div className={s.card__content__bottom}>
-                {/* <div className={s.card__order__type}>
-                                    Adresy
-                                </div> */}
                 <div className={s.card__order__adress__wrapper}>
                   <div className={s.card__order__from__to}>
                     <div className={s.card__order__from}>z</div>

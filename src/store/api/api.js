@@ -34,5 +34,12 @@ export const fetchStats = (aToken) => {
     },
   });
 };
+export const fetchUserStats = (aToken) => {
+  return _axios.get("/users", {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  });
+};
 
 export const fetchSingleOrder = (id) => _axios.get(`/order/${id}`);

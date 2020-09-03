@@ -11,7 +11,7 @@ export const getOrdersAction = () => {
     }
   };
 };
-export const getSingleOrder = (id) => {
+export const getSingleOrderAction = (id) => {
   return async (dispatch) => {
     const response = await fetchSingleOrder(id);
     dispatch({ type: SET_SINGLE_ORDER, singleOrder: response.data });

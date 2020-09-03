@@ -13,6 +13,7 @@ const ModalWindow = ({ isVisible, setVisibility }) => {
     });
 
     const closeModal = () => {
+        document.body.style.overflow = "";
         setVisibility(false);
     };
 
@@ -35,15 +36,45 @@ const ModalWindow = ({ isVisible, setVisibility }) => {
                             Szczegóły zamówienia
                         </div>
                         <div className={s.modal__details__container}>
-                            <ActiveOrders />
+                            <ActiveOrders
+                                orderNumber="11"
+                                orderType="Paczka"
+                                orderWeight="21"
+                                orderTime="14:88"
+                                orderStartPlace="ul. Rynek 3"
+                                orderFinishPlace="ul. Lewakowskiego 12/55"
+                                orderPrice="28"
+                            />
                         </div>
                     </div>
                     <div className={s.modal__right__side}>
-                        <div className={s.modal__side__title}>
-                            Informacje o użytkowniku
+                        <div className={s.modal__right__side__info}>
+                            <div className={s.modal__side__title}>
+                                Informacje o użytkowniku
+                            </div>
+                            <div className={s.modal__details__container}>
+                                <ClientInfo />
+                            </div>
                         </div>
-                        <div className={s.modal__details__container}>
-                            <ClientInfo />
+                        <div className={s.modal__right__side__rows__container}>
+                            <div className={s.modal__right__side__row}>
+                                <button
+                                    className={
+                                        s.modal__right__side__complete__btn
+                                    }
+                                >
+                                    Zakończyć zamówienie
+                                </button>
+                            </div>
+                            <div className={s.modal__right__side__row}>
+                                <button
+                                    className={
+                                        s.modal__right__side__cancel__btn
+                                    }
+                                >
+                                    Skasować zamówienie
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

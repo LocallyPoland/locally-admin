@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import s from "./Charts.module.css";
 import {
     XAxis,
@@ -10,73 +10,28 @@ import {
     BarChart,
     Bar,
 } from "recharts";
+import { polishMonths } from "../../utils/utils";
 
-const Charts = () => {
-    const data = [
-        {
-            name: "STYCZEŃ",
-            uv: 4500,
-            amt: 2400,
-        },
-        {
-            name: "LUTY",
-            uv: 3000,
-            amt: 2210,
-        },
-        {
-            name: "MARZEC",
-            uv: 2000,
-            amt: 2290,
-        },
-        {
-            name: "KWIECIEŃ",
-            uv: 2780,
-            amt: 2000,
-        },
-        {
-            name: "MAJ",
-            uv: 1890,
-            amt: 2181,
-        },
-        {
-            name: "CZERWIEC",
-            uv: 2390,
-            amt: 2500,
-        },
-        {
-            name: "LIPIEC",
-            uv: 3490,
-            amt: 2100,
-        },
-        {
-            name: "SIERPIEŃ",
-            uv: 4000,
-            amt: 2400,
-        },
-        {
-            name: "WRZESIEŃ",
-            uv: 3000,
-            amt: 2210,
-        },
-        {
-            name: "PAŹDZIERNIK",
-            uv: 2000,
-            amt: 2290,
-        },
-        {
-            name: "LISTOPAD",
-            uv: 2780,
-            amt: 2000,
-        },
-        {
-            name: "GRUDZIEŃ",
-            uv: 1890,
-            amt: 2181,
-        },
-    ];
+const Charts = ({ stats }) => {
+    const data2 = useMemo(() => {
+        return Object.entries(stats.months).map(([key, value], i) => {
+            console.log("key ===", key);
+            console.log("value ===", value);
+            return {
+                name: polishMonths[i],
+                uv: value,
+            };
+        });
+    }, [stats.months]);
+
+    const screenWidth = window.innerWidth;
+
     return (
-        <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data}>
+        <ResponsiveContainer
+            width={screenWidth < 700 ? "350%" : "100%"}
+            height="100%"
+        >
+            <BarChart data={data2}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -84,31 +39,6 @@ const Charts = () => {
                 <Legend />
                 <Bar dataKey="uv" name="Zysk" fill="#696897" />
             </BarChart>
-
-            {/* <LineChart
-                data={data}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-            >
-                <XAxis dataKey="name" />
-                <YAxis yAxisId="left" />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Legend verticalAlign="top" height={36} />
-                <Line
-                    name="Zysk"
-                    type="monotone"
-                    dataKey="pv"
-                    stroke="#8884d8"
-                    yAxisId="left"
-                />
-                <Line
-                    name="Za"
-                    type="monotone"
-                    dataKey="uv"
-                    stroke="#82ca9d"
-                    yAxisId="left"
-                />
-            </LineChart> */}
         </ResponsiveContainer>
     );
 };

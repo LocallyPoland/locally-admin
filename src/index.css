@@ -17,6 +17,11 @@ button:focus {
     outline: none;
 }
 
+button {
+    font-family: "Poppins";
+    cursor: pointer;
+}
+
 #root {
     display: flex;
     justify-content: center;

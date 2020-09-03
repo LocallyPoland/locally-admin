@@ -10,25 +10,7 @@ import {
   getUserStatsAction,
 } from "../../store/actions/statsAction";
 
-const Statistics = ({
-  profitPrice,
-  profitQuarterPrice,
-  profitYearPrice,
-  profitFullprice,
-  userMonthQuarantine,
-  userQuarterQuarantine,
-  userYearQuarantine,
-  userFullQuarantine,
-  orderMonthQuarantine,
-  orderQuarterQuarantine,
-  orderYearQuarantine,
-  orderFullQuarantine,
-  getStats,
-  getUserStats,
-  stats,
-  users,
-}) => {
-  // const { ordersLengthPerMonth } = stats;
+const Statistics = ({ getStats, getUserStats, stats }) => {
   useEffect(() => {
     (async () => {
       await getStats();

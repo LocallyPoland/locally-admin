@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./ActiveOrdersPage.module.css";
 import ActiveOrders from "../../misc/ActiveOrders/ActiveOrders";
+import { connect } from "react-redux";
+import { getOrdersAction } from "../../store/actions/orderActions";
 
-const ActiveOrdersPage = () => {
+const ActiveOrdersPage = ({ getOrders }) => {
+  useEffect(() => {
+    (async () => {
+      await getOrders();
+    })();
+  }, []);
   return (
     <div className={s.main__container}>
       <header className={s.header}>
@@ -51,5 +58,12 @@ const ActiveOrdersPage = () => {
     </div>
   );
 };
-
-export default ActiveOrdersPage;
+const mapStateToProps = (state) => {
+  return { orders: state.admin.orders };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getOrders: () => dispatch(getOrdersAction()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ActiveOrdersPage);

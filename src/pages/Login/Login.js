@@ -4,7 +4,7 @@ import { withFormik } from "formik";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { loginAction } from "../../store/actions/adminActions";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Login = ({
   values,
@@ -41,9 +41,6 @@ const Login = ({
             name="password"
             onBlur={handleBlur}
           />
-          {/* {errors.email && touched.email && (
-            <div id="feedback">{errors.values}</div>
-          )} */}
           <div className={s.btn}>
             <button className={s.form__submit__button} onSubmit={handleSubmit}>
               Login
@@ -75,13 +72,13 @@ const formikHOC = withFormik({
   handleSubmit: async (values, { props: { login, history } }) => {
     const isSuccess = await login(values);
     if (isSuccess) {
-      history.push("./");
+      history.push("/");
     }
   },
 })(Login);
 
 const mapStateToProps = (state) => {
-  return {};
+  // return { login: state.admin.login };
 };
 const mapDispatchToProps = (dispatch) => {
   return { login: (admin) => dispatch(loginAction(admin)) };

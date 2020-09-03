@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./Statistics.module.css";
 import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper";
 import EndedOrderWrapper from "../../wrappers/OrderWrappers/EndedOrderWrapper";
 import Chart from "../Charts/Charts";
+import { connect } from "react-redux";
+import { getStatsAction } from "../../store/actions/statsAction";
 
 const Statistics = ({
   profitPrice,
@@ -17,7 +19,16 @@ const Statistics = ({
   orderQuarterQuarantine,
   orderYearQuarantine,
   orderFullQuarantine,
+  getStats,
+  stats,
 }) => {
+  // const { ordersLengthPerMonth } = stats;
+  useEffect(() => {
+    (async () => {
+      await getStats();
+    })();
+  }, []);
+  console.log("stats ===", stats);
   return (
     <div className={s.statistics__inner}>
       <div className={s.statistics__buttons__row}>
@@ -28,19 +39,25 @@ const Statistics = ({
               <div className={s.statistic__content}>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Miesiąc:</div>
-                  <div className={s.statistic__value}>{profitPrice} zł</div>
+                  <div className={s.statistic__value}>
+                    {stats.data.ordersSumPerMonth} zł
+                  </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Kwartal:</div>
                   <div className={s.statistic__value}>
-                    {profitQuarterPrice} zł
+                    {stats.data.ordersSumPerQuarter} zł
                   </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Rok:</div>
-                  <div className={s.statistic__value}>{profitYearPrice} zł</div>
+                  <div className={s.statistic__value}>
+                    {stats.data.ordersSumPerYear} zł
+                  </div>
                 </div>
-                <div className={s.statistic__among}>{profitFullprice} zł</div>
+                <div className={s.statistic__among}>
+                  {stats.data.ordersSumPerAllTime} zł
+                </div>
               </div>
             </div>
           </ActiveOrderWrapper>
@@ -81,23 +98,24 @@ const Statistics = ({
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Miesiąc:</div>
                   <div className={s.statistic__value}>
-                    {orderMonthQuarantine}
+                    {stats.data.ordersLengthPerMonth}
                   </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Kwartal:</div>
                   <div className={s.statistic__value}>
-                    {orderQuarterQuarantine}
+                    {stats.data.ordersLengthPerQuarter}
                   </div>
                 </div>
                 <div className={s.statistic__row}>
                   <div className={s.statistic__name}>Rok:</div>
                   <div className={s.statistic__value}>
-                    {orderYearQuarantine}
+                    {stats.data.ordersLengthPerYear}
                   </div>
                 </div>
                 <div className={s.statistic__among}>
-                  {orderFullQuarantine} zamówień
+                  {"vadim piddr"}
+                  zamówień
                 </div>
               </div>
             </div>
@@ -106,11 +124,19 @@ const Statistics = ({
       </div>
       <div className={s.chart__container}>
         <EndedOrderWrapper>
-          <Chart />
+          <Chart {...{ stats }} />
         </EndedOrderWrapper>
       </div>
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return { stats: state.stats };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getStats: () => dispatch(getStatsAction()),
+  };
+};
 
-export default Statistics;
+export default connect(mapStateToProps, mapDispatchToProps)(Statistics);

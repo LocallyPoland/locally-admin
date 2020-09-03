@@ -1,16 +1,18 @@
-import { SET_ORDERS } from "../actions/actionTypes";
+import { SET_STATS } from "../actions/actionTypes";
 
 const initialState = {
-  orders: [],
-  // single: {},
+  data: {},
+  months: [],
 };
+
+console.log("initial state ===", initialState);
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_ORDERS:
+    case SET_STATS:
       return {
         ...state,
-        orders: action.orders,
+        ...action.stats,
       };
     default:
       return state;

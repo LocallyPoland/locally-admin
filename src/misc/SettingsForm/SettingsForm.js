@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./SettingsForm.module.css";
 import { withFormik } from "formik";
 import { connect } from "react-redux";
+import {
+  getSettingsAction,
+  patchSettingsAction,
+} from "../../store/actions/settingsActions";
 
 const SettingsForm = ({
   values,
@@ -15,10 +19,15 @@ const SettingsForm = ({
     e.preventDefault();
 
     const conf = window.confirm("Podtwierdzić zmiany?");
-
-    if (conf) console.log("Confirmed!");
+    if (conf) {
+      handleSubmit();
+    }
+    // if (conf) console.log("Confirmed!");
   };
-  console.log(values);
+  // useEffect(() => {
+  //   setSettings(aToken);
+  // }, [aToken]);
+  // console.log(values);
   return (
     <form className={s.form} onSubmit={changesConfirm}>
       <div className={s.form__wrapper}>
@@ -69,9 +78,7 @@ const SettingsForm = ({
           </label>
         </div>
       </div>
-      <button className={s.form__submit__button} onSubmit={handleSubmit}>
-        Zapisz zmiany
-      </button>
+      <button className={s.form__submit__button}>Zapisz zmiany</button>
     </form>
   );
 };
@@ -83,21 +90,22 @@ const formikHOC = withFormik({
     isChecked: false,
   }),
 
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000);
+  handleSubmit: async (values, { props: { patchSettings } }) => {
+    const isSuccess = await patchSettings(values);
+    if (isSuccess) {
+      alert("123");
+    }
   },
-
-  displayName: "BasicForm",
 })(SettingsForm);
 
 const mapStateToProps = (state) => {
-  return {};
+  // return { orders: state.admin.orders };
 };
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    getSettings: (aToken) => dispatch(getSettingsAction(aToken)),
+    patchSettings: (aToken) => dispatch(patchSettingsAction(aToken)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(formikHOC);

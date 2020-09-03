@@ -114,7 +114,7 @@ const Statistics = ({
                   </div>
                 </div>
                 <div className={s.statistic__among}>
-                  {"vadim piddr"}
+                  {stats.data.ordersLengthPerAllTime}
                   zamówień
                 </div>
               </div>

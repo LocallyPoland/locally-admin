@@ -5,28 +5,20 @@ import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper"
 import { getOrdersAction } from "../../store/actions/orderActions";
 import { connect } from "react-redux";
 
-const ActiveOrders = ({
-  orderNumber,
-  orderType,
-  orderWeight,
-  orderTime,
-  orderStartPlace,
-  orderFinishPlace,
-  orderPrice,
-  getOrders,
-}) => {
+const ActiveOrders = ({ orderItem }) => {
+  const {
+    orderNumber,
+    orderType,
+    orderWeight,
+    orderTime,
+    orderStartPlace,
+    orderFinishPlace,
+    orderPrice,
+    _id,
+  } = orderItem;
   return (
     <div className={s.active__orders}>
       <div className={s.active__orders__inner}>
-        {/* {orders.map((order, i) => {
-              const {
-                _id,
-                createdAt,
-                paymentType,
-                delivery,
-                status,
-                products,
-              } = order; */}
         <ActiveOrderWrapper>
           <div className={s.card__inner}>
             <div className={s.card__header}>
@@ -79,12 +71,4 @@ const ActiveOrders = ({
     </div>
   );
 };
-// const mapStateToProps = (state) => {
-//   return { orders: state.admin.orders };
-// };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getOrders: () => dispatch(getOrdersAction()),
-//   };
-// };
 export default ActiveOrders;

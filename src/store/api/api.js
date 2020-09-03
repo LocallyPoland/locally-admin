@@ -35,4 +35,4 @@ export const fetchStats = (aToken) => {
   });
 };
 
-// export const fetchSingleOrder = (id) => _axios.get(`/order/${id}`);
+export const fetchSingleOrder = (id) => _axios.get(`/order/${id}`);

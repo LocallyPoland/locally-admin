@@ -9,6 +9,7 @@ export const getSettingsAction = () => {
     if (response.status === 200) {
       dispatch({ type: SET_SETTINGS, settings: response.data });
     }
+    return response.status === 200;
   };
 };
 
@@ -19,5 +20,6 @@ export const patchSettingsAction = () => {
     if (response.status === 200) {
       dispatch({ type: SET_SETTINGS, settings: response.data });
     }
+    return response.status === 200;
   };
 };

@@ -20,7 +20,7 @@ export const fetchSettings = (aToken) => {
   });
 };
 export const patchSettings = (aToken) => {
-  return _axios.patch("/settings", {
+  return _axios.patch("/setting", {
     headers: {
       Authorization: `Bearer ${aToken}`,
     },
@@ -29,6 +29,13 @@ export const patchSettings = (aToken) => {
 
 export const fetchStats = (aToken) => {
   return _axios.get("/order/stats", {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  });
+};
+export const fetchUserStats = (aToken) => {
+  return _axios.get("/users", {
     headers: {
       Authorization: `Bearer ${aToken}`,
     },

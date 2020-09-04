@@ -9,9 +9,10 @@ export const getOrdersAction = () => {
     if (response.status === 200) {
       dispatch({ type: SET_ORDERS, orders: response.data });
     }
+    return response.status === 200;
   };
 };
-export const getSingleOrder = (id) => {
+export const getSingleOrderAction = (id) => {
   return async (dispatch) => {
     const response = await fetchSingleOrder(id);
     dispatch({ type: SET_SINGLE_ORDER, singleOrder: response.data });

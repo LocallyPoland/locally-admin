@@ -97,7 +97,7 @@ const ActiveOrdersPage = ({ getOrders, orders }) => {
     );
 };
 const mapStateToProps = (state) => {
-    return { orders: state.orders };
+    return { order: state.order };
 };
 const mapDispatchToProps = (dispatch) => {
     return {

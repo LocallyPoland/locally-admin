@@ -2,7 +2,7 @@ import { SET_ORDERS, SET_SINGLE_ORDER } from "../actions/actionTypes";
 
 const initialState = {
   orders: [],
-  single: {},
+  singleOrder: {},
 };
 
 export default (state = initialState, action) => {
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
         orders: action.orders,
       };
     case SET_SINGLE_ORDER:
-      return { ...state, single: action.singleOrder };
+      return { ...state, singleOrder: action.singleOrder };
     default:
       return state;
   }

@@ -5,9 +5,7 @@ export const loginAction = (data) => {
   return async (dispatch) => {
     const response = await loginRequest(data);
     const { aToken } = response.data;
-    console.log(response?.data, "response");
     if (response.status === 200) {
-      // console.log(response.data.user, "user");
       document.cookie = `aToken=${aToken} `;
       dispatch({ type: SET_ADMIN, admin: { ...response.data.user } }); ///admin
     } else {

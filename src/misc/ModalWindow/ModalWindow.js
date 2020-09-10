@@ -14,8 +14,6 @@ const ModalWindow = ({
                          getSingleOrder,
                          singleOrder
                      }) => {
-    console.log("id === ", id)
-    console.log("singleOrder === ", singleOrder)
     const {
         _id,
         parcel,

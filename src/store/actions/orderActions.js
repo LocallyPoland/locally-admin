@@ -16,7 +16,6 @@ export const getSingleOrderAction = (id) => {
     return async (dispatch) => {
         const aToken = getAdminToken();
         const response = await fetchSingleOrder(id, aToken);
-        console.log(response.data)
         if (response.status === 200) {
             dispatch({type: SET_SINGLE_ORDER, singleOrder: response.data});
         }

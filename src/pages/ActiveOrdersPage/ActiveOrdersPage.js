@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import s from "./ActiveOrdersPage.module.css";
 import ActiveOrders from "../../misc/ActiveOrders/ActiveOrders";
-import { connect } from "react-redux";
-import { getOrdersAction } from "../../store/actions/orderActions";
+import {connect} from "react-redux";
+import {getOrdersAction} from "../../store/actions/orderActions";
 
-const ActiveOrdersPage = ({ getOrders, orders }) => {
+const ActiveOrdersPage = ({getOrders, order: {orders: {activeOrders}}}) => {
     useEffect(() => {
         (async () => {
             await getOrders();
@@ -18,86 +18,27 @@ const ActiveOrdersPage = ({ getOrders, orders }) => {
                 </div>
             </header>
             <div className={s.container}>
-                {/* <ActiveOrders
-          orderNumber="11"
-          orderType="Paczka"
-          orderWeight="21"
-          orderTime="14:88"
-          orderStartPlace="ul. Rynek 3"
-          orderFinishPlace="ul. Lewakowskiego 12/55"
-          orderPrice="28"
-        />
-        <ActiveOrders
-          orderNumber="11"
-          orderType="Paczka"
-          orderWeight="21"
-          orderTime="14:88"
-          orderStartPlace="ul. Rynek 3"
-          orderFinishPlace="ul. Lewakowskiego 12/55"
-          orderPrice="28"
-        />
-        <ActiveOrders
-          orderNumber="11"
-          orderType="Paczka"
-          orderWeight="21"
-          orderTime="14:88"
-          orderStartPlace="ul. Rynek 3"
-          orderFinishPlace="ul. Lewakowskiego 12/55"
-          orderPrice="28"
-        /> */}
-                {/* {orders?.map((orderItem, i) => (
-          <ActiveOrders {...{ orderItem }} key={orderItem._id} />
-        ))} */}
-                <div className={s.active__orders__item}>
-                    <ActiveOrders
-                        orderNumber="11"
-                        orderType="Paczka"
-                        orderWeight="21"
-                        orderTime="14:88"
-                        orderStartPlace="ul. Rynek 3"
-                        orderFinishPlace="ul. Lewakowskiego 12/55"
-                        orderPrice="28"
-                    />
-                </div>
-                <div className={s.active__orders__item}>
-                    <ActiveOrders
-                        orderNumber="11"
-                        orderType="Paczka"
-                        orderWeight="21"
-                        orderTime="14:88"
-                        orderStartPlace="ul. Rynek 3"
-                        orderFinishPlace="ul. Lewakowskiego 12/55"
-                        orderPrice="28"
-                    />
-                </div>
-                <div className={s.active__orders__item}>
-                    <ActiveOrders
-                        orderNumber="11"
-                        orderType="Paczka"
-                        orderWeight="21"
-                        orderTime="14:88"
-                        orderStartPlace="ul. Rynek 3"
-                        orderFinishPlace="ul. Lewakowskiego 12/55"
-                        orderPrice="28"
-                    />
-                </div>
-                <div className={s.active__orders__item}>
-                    <ActiveOrders
-                        orderNumber="11"
-                        orderType="Paczka"
-                        orderWeight="21"
-                        orderTime="14:88"
-                        orderStartPlace="ul. Rynek 3"
-                        orderFinishPlace="ul. Lewakowskiego 12/55"
-                        orderPrice="28"
-                    />
-                </div>
+                {activeOrders && activeOrders.map((active) => {
+                    return <div key={active._id} className={s.active__orders__item}>
+                        <ActiveOrders
+                                      orderNumber={active._id.length}
+                                      orderType={active.parcel || "Paczka"}
+                                      orderWeight={active.weight || "5"}
+                                      orderTime={active.deliveryTime || "12.20"}
+                                      orderStartPlace={active.pickUp || `${active.deliveryStreet}, ${active.deliveryHouse}`}
+                                      orderFinishPlace={`${active.deliveryStreet}, ${active.deliveryHouse}`}
+                                      orderPrice={active.sum}
+                                      orderStatus={active.status}
+                        />
+                    </div>
+                })
+                }
             </div>
         </div>
     );
 };
 const mapStateToProps = (state) => {
-    return { order: state.order };
+    return {order: state.order};
 };
 const mapDispatchToProps = (dispatch) => {
     return {

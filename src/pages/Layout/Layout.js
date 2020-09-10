@@ -95,7 +95,7 @@ const Layout = ({logout, order: {orders}, getOrders}) => {
                     <div className={s.orders__column}>
                         {
                             orders.ordersHistory && orders.ordersHistory.map(history => {
-                                return <button key={history._id} onClick={showModal} className={s.order__button}>
+                                return <button key={history._id} onClick={()=>showModal(history._id)} className={s.order__button}>
                                     <ActiveOrders
                                         orderNumber={history._id.length}
                                         orderType={history.parcel || "Paczka"}

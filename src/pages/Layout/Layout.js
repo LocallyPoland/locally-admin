@@ -19,7 +19,7 @@ const Layout = ({logout, order: {orders}, getOrders}) => {
     const h = useHistory();
     const Logout = () => {
         logout();
-        h.push("/login");
+        h.push("/");
     };
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const Layout = ({logout, order: {orders}, getOrders}) => {
                 <div className={s.header__inner}>
                     <div className={s.header__title}>Locally admin panel</div>
                     <div className={s.header__user}>
-                        <div className={s.header__user__name}>jar021203@gmail.com</div>
+                        <div className={s.header__user__name}>jar02212@gmail.com</div>
                         <div className={s.header__user__avatar}>
                             <LogoutIcon className={s.user__logout} onClick={Logout}/>
                         </div>

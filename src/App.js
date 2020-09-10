@@ -11,10 +11,10 @@ function App() {
         <BrowserRouter history={{}}>
             <Notifications />
             <Switch>
-                <Route path="/" component={Layout} exact />
+                <Route exact path="/" component={Login} />
+                <Route path="/home" component={Layout} exact />
                 <Route path="/active-orders" component={ActiveOrdersPage} />
                 <Route path="/ended-orders" component={EndedOrdersPage} />
-                <Route path="/login" component={Login} />
             </Switch>
         </BrowserRouter>
     );

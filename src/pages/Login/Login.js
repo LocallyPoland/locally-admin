@@ -72,7 +72,7 @@ const formikHOC = withFormik({
   handleSubmit: async (values, { props: { login, history } }) => {
     const isSuccess = await login(values);
     if (isSuccess) {
-      history.push("/");
+      history.push("/home");
     }
   },
 })(Login);

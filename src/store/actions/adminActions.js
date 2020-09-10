@@ -4,7 +4,7 @@ import { loginRequest } from "../api/api";
 export const loginAction = (data) => {
   return async (dispatch) => {
     const response = await loginRequest(data);
-    const { aToken, token } = response.data;
+    const { aToken } = response.data;
     console.log(response?.data, "response");
     if (response.status === 200) {
       // console.log(response.data.user, "user");

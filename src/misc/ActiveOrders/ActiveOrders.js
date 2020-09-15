@@ -5,28 +5,18 @@ import ActiveOrderWrapper from "../../wrappers/OrderWrappers/ActiveOrderWrapper"
 import { getOrdersAction } from "../../store/actions/orderActions";
 import { connect } from "react-redux";
 
-const ActiveOrders = ({
-  orderNumber,
-  orderType,
-  orderWeight,
-  orderTime,
-  orderStartPlace,
-  orderFinishPlace,
-  orderPrice,
-  getOrders,
-  _id,
-}) => {
-  // const {
-  //   orderNumber,
-  //   orderType,
-  //   orderWeight,
-  //   orderTime,
-  //   orderStartPlace,
-  //   orderFinishPlace,
-  //   orderPrice,
-  //   getOrders,
-  //   _id,
-  // } = orderItem;
+const ActiveOrders = ({ orderItems }) => {
+  const {
+    orderNumber,
+    orderType,
+    orderWeight,
+    orderTime,
+    orderStartPlace,
+    orderFinishPlace,
+    orderPrice,
+    getOrders,
+    _id,
+  } = orderItems;
 
   return (
     <div className={s.active__orders}>

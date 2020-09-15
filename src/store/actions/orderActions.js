@@ -7,7 +7,10 @@ export const getOrdersAction = () => {
     const aToken = getAdminToken();
     const response = await fetchOrders(aToken);
     if (response.status === 200) {
-      dispatch({ type: SET_ORDERS, orders: response.data });
+      dispatch({
+        type: SET_ORDERS,
+        orders: response.data,
+      });
     }
     return response.status === 200;
   };

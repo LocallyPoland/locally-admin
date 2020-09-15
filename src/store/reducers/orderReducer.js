@@ -1,7 +1,7 @@
 import { SET_ORDERS, SET_SINGLE_ORDER } from "../actions/actionTypes";
 
 const initialState = {
-  orders: [],
+  orders: {},
   single: {},
 };
 

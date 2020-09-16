@@ -19,8 +19,8 @@ export const fetchSettings = (aToken) => {
     },
   });
 };
-export const patchSettings = (aToken) => {
-  return _axios.patch("/setting", {
+export const patchSettings = (aToken, data) => {
+  return _axios.patch("/settings", data, {
     headers: {
       Authorization: `Bearer ${aToken}`,
     },
@@ -42,4 +42,21 @@ export const fetchUserStats = (aToken) => {
   });
 };
 
-export const fetchSingleOrder = (id) => _axios.get(`/order/${id}`);
+export const fetchSingleOrder = (id, aToken) => {
+  return _axios.get(`/order/${id}`, {
+    headers: {
+      Authorization: `Bearer ${aToken}`,
+    },
+  });
+};
+
+export const fetchFilteredOrders = (sortType, searchValue) => {
+  let baseUrl = "/ended-orders?";
+  if (sortType) {
+    baseUrl += `sort=${sortType}`;
+  }
+  if (searchValue) {
+    baseUrl += `search=${searchValue}&`;
+  }
+  return _axios.get(baseUrl);
+};

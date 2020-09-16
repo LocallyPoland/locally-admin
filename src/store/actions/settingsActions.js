@@ -13,10 +13,10 @@ export const getSettingsAction = () => {
   };
 };
 
-export const patchSettingsAction = () => {
+export const patchSettingsAction = (data) => {
   return async (dispatch) => {
     const aToken = getAdminToken();
-    const response = await patchSettings(aToken);
+    const response = await patchSettings(aToken, data);
     if (response.status === 200) {
       dispatch({ type: SET_SETTINGS, settings: response.data });
     }

@@ -6,8 +6,6 @@ const initialState = {
   users: {},
 };
 
-console.log("initial state ===", initialState);
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_STATS:

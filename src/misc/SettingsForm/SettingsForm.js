@@ -10,12 +10,15 @@ import {
 } from "../../store/actions/settingsActions";
 
 const SettingsForm = ({
+  settings,
   values,
   touched,
   errors,
   handleChange,
   handleBlur,
   handleSubmit,
+  getSettings,
+  setValues,
 }) => {
   const changesConfirm = (e) => {
     e.preventDefault();
@@ -40,10 +43,24 @@ const SettingsForm = ({
     sendNotification();
   }, 5000);
 
-  // useEffect(() => {
-  //   setSettings(aToken);
-  // }, [aToken]);
-  // console.log(values);
+  useEffect(() => {
+    getSettings();
+  }, []);
+
+  useEffect(() => {
+    const { price, priceForCustomer, switcher, timeStart, timeStop } = settings;
+    if (settings) {
+      setValues({
+        ...values,
+        price,
+        priceForCustomer,
+        switcher,
+        timeStart,
+        timeStop,
+      });
+    }
+  }, [settings]);
+
   return (
     <form className={s.form} onSubmit={changesConfirm}>
       <div className={s.form__wrapper}>
@@ -53,9 +70,10 @@ const SettingsForm = ({
             <input
               className={s.form__delivery__price__input}
               onChange={handleChange}
-              value={values.deliveryPrice}
-              name="deliveryPrice"
+              value={values.price}
+              name="price"
               onBlur={handleBlur}
+              type="number"
             />
           </div>
           <div className={s.form__inputs__wrapper}>
@@ -65,17 +83,19 @@ const SettingsForm = ({
               <input
                 className={s.form__delivery__time__input}
                 onChange={handleChange}
-                value={values.deliveryStartTime}
-                name="deliveryStartTime"
+                value={values.timeStart}
+                name="timeStart"
                 onBlur={handleBlur}
+                // type="number"
               />
               <span className={s.form__delivery__to}>do</span>
               <input
                 className={s.form__delivery__time__input}
                 onChange={handleChange}
-                value={values.deliveryFinishTime}
-                name="deliveryFinishTime"
+                value={values.timeStop}
+                name="timeStop"
                 onBlur={handleBlur}
+                // type="number"
               />
             </div>
           </div>
@@ -85,8 +105,8 @@ const SettingsForm = ({
               <input
                 type="checkbox"
                 onChange={handleChange}
-                checked={values.isChecked}
-                name="isChecked"
+                checked={values.switcher}
+                name="switcher"
                 onBlur={handleBlur}
               />
               <div />
@@ -102,27 +122,41 @@ const SettingsForm = ({
 };
 const formikHOC = withFormik({
   mapPropsToValues: () => ({
-    deliveryPrice: "",
-    deliveryStartTime: "",
-    deliveryFinishTime: "",
-    isChecked: false,
+    price: "",
+    priceForCustomer: "",
+    switcher: "",
+    timeStart: "",
+    timeStop: "",
   }),
 
   handleSubmit: async (values, { props: { patchSettings } }) => {
-    const isSuccess = await patchSettings(values);
-    if (isSuccess) {
-      alert("123");
-    }
+    const isSuccess = await patchSettings({
+      ...values,
+      priceForCustomer: null,
+      price: +values.price,
+      timeStart: +values.timeStart,
+      timeStop: +values.timeStop,
+      switcher: values.switcher[0] === "on" ? true : false,
+    });
+    // if (isSuccess) {
+    //   resetForm({
+    //     price: "",
+    //     priceForCustomer: "",
+    //     switcher: "",
+    //     timeStart: "",
+    //     timeStop: "",
+    //   });
+    // }
   },
 })(SettingsForm);
 
 const mapStateToProps = (state) => {
-  return {};
+  return { settings: state.settings };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     getSettings: (aToken) => dispatch(getSettingsAction(aToken)),
-    patchSettings: (aToken) => dispatch(patchSettingsAction(aToken)),
+    patchSettings: (data) => dispatch(patchSettingsAction(data)),
   };
 };
 

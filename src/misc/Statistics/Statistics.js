@@ -17,7 +17,6 @@ const Statistics = ({ getStats, getUserStats, stats }) => {
       await getUserStats();
     })();
   }, []);
-  console.log("stats ===", stats);
   return (
     <div className={s.statistics__inner}>
       <div className={s.statistics__buttons__row}>

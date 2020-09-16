@@ -1,48 +1,127 @@
 .main__container {
-    width: 100%;
-    height: 100%;
-    padding-bottom: 3.125rem;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 3.125rem;
 }
 
 .header {
-    width: 100%;
-    height: 100%;
-    max-height: 6.25rem;
+  width: 100%;
+  height: 100%;
+  max-height: 6.25rem;
 }
 
 .header__inner {
-    width: 100%;
-    height: 100%;
-    padding: 2.5rem;
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem;
 }
 
 .header__title {
-    width: 100%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .filter {
-    width: 100%;
+  width: 100%;
 }
 
 .container {
-    width: 100%;
-    height: 100%;
-    margin-top: 2.5rem;
-    padding: 1.25rem 5rem;
+  width: 100%;
+  height: 100%;
+  margin-top: 2.5rem;
+  padding: 1.25rem 5rem;
 }
 
 .ended__orders__title {
-    width: 100%;
-    text-align: center;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #334669;
+  width: 100%;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #334669;
 }
 
 .title__date {
-    color: #4643d2;
+  color: #4643d2;
+}
+
+.filter__container {
+  width: 100%;
+  height: 100%;
+  margin-top: 2.5rem;
+  padding: 1.25rem 5rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.filter__item {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter__sort {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter__sort__title {
+  margin-right: 0.625rem;
+  margin-top: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.filter__row {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search__btn {
+  /* width: 100%; */
+  max-width: 40rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 0.625rem;
+  background-color: #fe805f;
+  font-size: 1.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+@media only screen and (max-width: 1000px) {
+  .filter__container {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  .filter__item {
+    flex-direction: column;
+    width: 100%;
+  }
+  .filter__row {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .filter__sort__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -15,8 +15,6 @@ import { polishMonths } from "../../utils/utils";
 const Charts = ({ stats }) => {
   const data2 = useMemo(() => {
     return Object.entries(stats.months).map(([key, value], i) => {
-      // console.log("key ===", key);
-      // console.log("value ===", value);
       return {
         name: polishMonths[i],
         uv: value,

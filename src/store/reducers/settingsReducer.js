@@ -1,21 +1,24 @@
-import { SET_STATS } from "../actions/actionTypes";
+import { logRoles } from "@testing-library/react";
+import { SET_SETTINGS } from "../actions/actionTypes";
 
 const initialState = {
-  deliveryPrice: "",
-  deliveryStartTime: "",
-  deliveryFinishTime: "",
-  isChecked: false,
+  price: "",
+  priceForCustomer: "",
+  switcher: "",
+  timeStart: "",
+  timeStop: "",
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_STATS:
+    case SET_SETTINGS:
       return {
         ...state,
-        deliveryPrice: action.deliveryPrice,
-        deliveryStartTime: action.deliveryStartTime,
-        deliveryFinishTime: action.deliveryFinishTime,
-        isChecked: false,
+        price: action.settings.price,
+        priceForCustomer: action.settings.priceForCustomer,
+        timeStart: action.settings.timeStart,
+        timeStop: action.settings.timeStop,
+        switcher: action.settings.switcher,
       };
     default:
       return state;

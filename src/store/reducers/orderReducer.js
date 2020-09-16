@@ -1,8 +1,15 @@
-import { SET_ORDERS, SET_SINGLE_ORDER } from "../actions/actionTypes";
+import {
+  SET_FILTERED_ORDERS,
+  SET_ORDERS,
+  SET_SEARCH_VALUE,
+  SET_SINGLE_ORDER,
+} from "../actions/actionTypes";
 
 const initialState = {
-  orders: {},
-  single: {},
+  orders: [],
+  singleOrder: {},
+  filtered: [],
+  searchValue: "",
 };
 
 export default (state = initialState, action) => {
@@ -11,9 +18,20 @@ export default (state = initialState, action) => {
       return {
         ...state,
         orders: action.orders,
+        filtered: action.orders,
       };
     case SET_SINGLE_ORDER:
-      return { ...state, single: action.singleOrder };
+      return { ...state, singleOrder: action.singleOrder };
+    case SET_FILTERED_ORDERS:
+      return {
+        ...state,
+        filtered: action.orders,
+      };
+    case SET_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: action.searchValue,
+      };
     default:
       return state;
   }

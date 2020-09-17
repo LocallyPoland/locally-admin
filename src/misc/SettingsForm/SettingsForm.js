@@ -136,7 +136,7 @@ const formikHOC = withFormik({
       price: +values.price,
       timeStart: +values.timeStart,
       timeStop: +values.timeStop,
-      switcher: values.switcher[0] === "on" ? true : false,
+      switcher: +values.switcher[0] === "on" ? true : false,
     });
     // if (isSuccess) {
     //   resetForm({

@@ -9,6 +9,7 @@ import {
   setSearchValueAction,
 } from "../../store/actions/orderActions";
 import Select from "../../misc/Select/Select";
+import ModalWindow from "../../misc/ModalWindow/ModalWindow";
 
 const EndedOrdersPage = ({
   getOrders,
@@ -53,6 +54,14 @@ const EndedOrdersPage = ({
     })();
   }, []);
 
+  const showModal = (id) => {
+    document.body.style.overflow = "hidden";
+    setModalVisible(true);
+    setOrderId(id);
+  };
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [orderId, setOrderId] = useState();
+
   return (
     <div className={s.main__container}>
       <header className={s.header}>
@@ -60,6 +69,11 @@ const EndedOrdersPage = ({
           <div className={s.header__title}>Historia zamówień</div>
         </div>
       </header>
+      <ModalWindow
+        isVisible={isModalVisible}
+        id={orderId}
+        setVisibility={setModalVisible}
+      />
       <div className={s.filter}>
         {/* <OrderFilter /> */}
         <div className={s.filter__container}>
@@ -96,21 +110,31 @@ const EndedOrdersPage = ({
           Zamówienia od <span className={s.title__date}>21.08.20</span>
         </div>
         {ordersHistory &&
-          ordersHistory.map((history) => (
-            <ActiveOrders
-              key={history._id}
-              orderNumber={history._id.length || "11"}
-              orderType={history.parcel || "Paczka"}
-              orderWeight={history.weight || "21"}
-              orderTime={history.deliveryTime || "14:88"}
-              orderStartPlace={history.pickup || "ul. Rynek 3"}
-              orderFinishPlace={
-                `${history.deliveryStreet}, ${history.deliveryHouse}` ||
-                "ul. Lewakowskiego 12/55"
-              }
-              orderPrice={history.sum || "28"}
-            />
-          ))}
+          filterOrders &&
+          searchValue &&
+          ordersHistory.map((history) => {
+            return (
+              <div
+                key={history._id}
+                onClick={() => showModal(history._id)}
+                className={s.active__orders__item}
+              >
+                <ActiveOrders
+                  key={history._id}
+                  orderNumber={history._id.length || "11"}
+                  orderType={history.parcel || "Paczka"}
+                  orderWeight={history.weight || "21"}
+                  orderTime={history.deliveryTime || "14:88"}
+                  orderStartPlace={history.pickup || "ul. Rynek 3"}
+                  orderFinishPlace={
+                    `${history.deliveryStreet}, ${history.deliveryHouse}` ||
+                    "ul. Lewakowskiego 12/55"
+                  }
+                  orderPrice={history.sum || "28"}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );

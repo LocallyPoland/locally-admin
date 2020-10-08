@@ -32,7 +32,9 @@ const ActiveOrders = ({
             </div>
             <div className={s.card__content}>
               <div className={s.card__content__top}>
-                <div className={s.card__order__type}>{orderType}</div>
+                <div className={s.card__order__type}>
+                  {orderType === "box" ? "paczka" : orderType}
+                </div>
                 <div className={s.card__order__info}>
                   <div className={s.card__order__weight}>
                     <div className={s.order__weight__text}>waga do:</div>
@@ -42,7 +44,9 @@ const ActiveOrders = ({
                   </div>
                   <div className={s.card__order__time}>
                     <div className={s.order__time__text}>czas dostawy:</div>
-                    <div className={s.order__time__value}>{orderTime}</div>
+                    <div className={s.order__time__value}>
+                      {new Date(orderTime).toUTCString()}
+                    </div>
                   </div>
                 </div>
               </div>

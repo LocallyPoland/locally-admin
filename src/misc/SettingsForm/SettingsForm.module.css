@@ -144,7 +144,16 @@ input {
 .form__submit__button:focus {
   outline: none;
 }
-
+.input__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.zl {
+  padding-top: 2.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4643d2;
+}
 @media only screen and (max-width: 700px) {
   input {
     height: 3.5rem;

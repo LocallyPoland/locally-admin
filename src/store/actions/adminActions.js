@@ -16,7 +16,7 @@ export const loginAction = (data) => {
   };
 };
 export const logoutAction = () => {
-  document.cookie = "token=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+  // document.cookie = "token=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
   document.cookie = "aToken=''; expires=Thu, 18 Dec 2013 12:00:00 UTC";
   // localStorage.removeItem("login");
   return {

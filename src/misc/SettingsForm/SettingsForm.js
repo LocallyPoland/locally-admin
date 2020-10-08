@@ -67,14 +67,17 @@ const SettingsForm = ({
         <div className={s.form__inputs}>
           <div className={s.form__inputs__wrapper}>
             <div className={s.form__delivery__price__title}>Cena dostawy</div>
-            <input
-              className={s.form__delivery__price__input}
-              onChange={handleChange}
-              value={values.price}
-              name="price"
-              onBlur={handleBlur}
-              type="number"
-            />
+            <div className={s.input__wrapper}>
+              <input
+                className={s.form__delivery__price__input}
+                onChange={handleChange}
+                value={values.price}
+                name="price"
+                onBlur={handleBlur}
+                type="number"
+              />
+              <span className={s.zl}>zł</span>
+            </div>
           </div>
           <div className={s.form__inputs__wrapper}>
             <div className={s.form__delivery__time__title}>Czas dostawy</div>

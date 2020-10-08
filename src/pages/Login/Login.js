@@ -23,7 +23,7 @@ const Login = ({
           <label className={s.label}>e-mail</label>
           <input
             className={s.input}
-            placeholder="vadvit009@gmail.com"
+            placeholder="example@gmail.com"
             onChange={handleChange}
             value={values.email}
             name="email"
@@ -34,7 +34,7 @@ const Login = ({
           />
           <label className={s.label}>Hasło</label>
           <input
-            placeholder="vadvit009"
+            placeholder="example"
             type="password"
             onChange={handleChange}
             value={values.password}
@@ -44,7 +44,7 @@ const Login = ({
           <div className={s.btn}>
             <button className={s.form__submit__button} onSubmit={handleSubmit}>
               Login
-            </button> 
+            </button>
           </div>
         </div>
       </div>

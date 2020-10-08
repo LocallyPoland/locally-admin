@@ -1,4 +1,5 @@
 import {
+  PATCH_SINGLE_ORDER,
   SET_FILTERED_ORDERS,
   SET_ORDERS,
   SET_SEARCH_VALUE,
@@ -18,19 +19,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         orders: action.orders,
-        filtered: action.orders,
       };
     case SET_SINGLE_ORDER:
+      return { ...state, singleOrder: action.singleOrder };
+    case PATCH_SINGLE_ORDER:
       return { ...state, singleOrder: action.singleOrder };
     case SET_FILTERED_ORDERS:
       return {
         ...state,
-        filtered: action.orders,
-      };
-    case SET_SEARCH_VALUE:
-      return {
-        ...state,
-        searchValue: action.searchValue,
+        filtered: action.filtered,
       };
     default:
       return state;

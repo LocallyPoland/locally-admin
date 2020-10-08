@@ -1,9 +1,9 @@
-import { fetchOrders, fetchSingleOrder, fetchFilteredOrders } from "../api/api";
+import {fetchOrders, fetchSingleOrder, fetchFilteredOrders, patchOrder} from "../api/api";
 import {
   SET_ORDERS,
   SET_SINGLE_ORDER,
   SET_FILTERED_ORDERS,
-  SET_SEARCH_VALUE,
+  PATCH_SINGLE_ORDER,
 } from "./actionTypes";
 import { getAdminToken } from "../../utils/utils";
 
@@ -28,25 +28,30 @@ export const getSingleOrderAction = (id) => {
   };
 };
 
-export const filterOrdersAction = (sortType) => {
+export const filterOrdersAction = ({sort, status, from, to, search}) => {
   return async (dispatch) => {
-    const response = await fetchFilteredOrders(sortType);
-    if (response?.data?.orders) {
+    const response = await fetchFilteredOrders(sort, status, from, to, search);
+    if (response?.data?.history) {
       dispatch({
         type: SET_FILTERED_ORDERS,
-        orders: response.data.orders,
+        filtered: response.data.history,
       });
     } else {
       dispatch({
         type: SET_FILTERED_ORDERS,
-        products: [],
+        filtered: [],
       });
     }
   };
 };
-export const setSearchValueAction = (searchValue) => {
-  return {
-    type: SET_SEARCH_VALUE,
-    searchValue,
+
+export const patchSingleOrderAction = ({id, status}) => {
+  return async (dispatch) => {
+    const aToken = getAdminToken();
+    const response = await patchOrder(id, status,aToken);
+    if (response.status === 200) {
+      dispatch({ type: PATCH_SINGLE_ORDER, singleOrder: response.data });
+    }
+    return response.status === 200;
   };
 };

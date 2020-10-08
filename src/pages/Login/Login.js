@@ -44,7 +44,7 @@ const Login = ({
           <div className={s.btn}>
             <button className={s.form__submit__button} onSubmit={handleSubmit}>
               Login
-            </button>
+            </button> 
           </div>
         </div>
       </div>

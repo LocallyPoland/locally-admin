@@ -104,6 +104,9 @@
   transition: 0.2s linear;
 }
 
+.active__orders__item {
+  width: 50%;
+}
 @media only screen and (max-width: 1000px) {
   .filter__container {
     flex-direction: column;
@@ -124,5 +127,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .header__title {
+    font-size: 2rem;
+  }
+  .active__orders__item {
+    width: 100%;
   }
 }

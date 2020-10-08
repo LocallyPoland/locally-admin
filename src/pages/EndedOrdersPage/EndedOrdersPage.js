@@ -153,7 +153,7 @@ const EndedOrdersPage = (
                                 orderStatus={filtered.status}
                                 orderTime={filtered.deliveryTime}
                                 orderStartPlace={filtered.pickUp}
-                                orderFinishPlace={filtered.deliveryAddress                                }
+                                orderFinishPlace={filtered.deliveryAddress}
                                 orderPrice={filtered.sum}
                             />
                         </div>

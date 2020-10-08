@@ -66,7 +66,7 @@ const ModalWindow = (
                                     orderTime={deliveryTime}
                                     orderStartPlace={pickup}
                                     orderFinishPlace={deliveryAddress}
-                                    orderPrice={sum || "28"}
+                                    orderPrice={sum}
                                 />
                             </div>
                         </div>

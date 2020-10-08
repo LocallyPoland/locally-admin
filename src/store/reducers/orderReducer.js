@@ -11,6 +11,7 @@ const initialState = {
   singleOrder: {},
   filtered: [],
   searchValue: "",
+  phone: "",
 };
 
 export default (state = initialState, action) => {

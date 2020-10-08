@@ -9,6 +9,7 @@ export default (state = initialState, action) => {
         ...state,
         email: action.admin.email,
         password: action.admin.password,
+        isAdmin: true,
       };
     case LOGOUT:
       return {

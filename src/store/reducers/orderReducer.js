@@ -4,7 +4,7 @@ import {
     SET_ORDERS,
     SET_SEARCH_VALUE,
     SET_SINGLE_ORDER,
-    SHOW_NOTIFICATION,
+    // SHOW_NOTIFICATION,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -12,6 +12,7 @@ const initialState = {
     singleOrder: {},
     filtered: [],
     searchValue: "",
+    phone: "",
 };
 
 export default (state = initialState, action) => {

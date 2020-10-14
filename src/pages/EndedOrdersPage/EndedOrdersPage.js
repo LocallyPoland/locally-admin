@@ -37,12 +37,6 @@ const EndedOrdersPage = ({
         })();
     }, []);
 
-    const showModal = (id) => {
-        document.body.style.overflow = "hidden";
-        setModalVisible(true);
-        setOrderId(id);
-    };
-
     return (
         <div className={s.main__container}>
             <header className={s.header}>
@@ -162,57 +156,57 @@ const EndedOrdersPage = ({
                         Przefiltrowane zamówienia{" "}
                     </h2>
                 )}
-
-                {!filteredOrders.length
-                    ? ordersHistory &&
-                      ordersHistory.map((history) => {
-                          return (
-                              <div
-                                  key={history._id}
-                                  onClick={() => showModal(history._id)}
-                                  className={s.active__orders__item}
-                              >
-                                  <ActiveOrders
+                <div className={s.container}>
+                    {!filteredOrders.length
+                        ? ordersHistory &&
+                          ordersHistory.map((history) => {
+                              return (
+                                  <div
                                       key={history._id}
-                                      orderNumber={history._id.length}
-                                      orderType={history.parcel}
-                                      orderWeight={history.weight}
-                                      orderStatus={history.status}
-                                      orderTime={
-                                          history.deliveryTime &&
-                                          history.deliveryTime.toString()
-                                      }
-                                      orderStartPlace={history.pickUp}
-                                      orderFinishPlace={history.deliveryAddress}
-                                      orderPrice={history.sum}
-                                  />
-                              </div>
-                          );
-                      })
-                    : filteredOrders.length &&
-                      filteredOrders.map((filtered) => {
-                          return (
-                              <div
-                                  key={filtered._id}
-                                  onClick={() => showModal(filtered._id)}
-                                  className={s.active__orders__item}
-                              >
-                                  <ActiveOrders
+                                      // onClick={() => showModal(history._id)}
+                                      className={s.active__orders__item}
+                                  >
+                                      <ActiveOrders
+                                          key={history._id}
+                                          orderNumber={history._id.length}
+                                          orderType={history.parcel}
+                                          orderWeight={history.weight}
+                                          orderStatus={history.status}
+                                          orderTime={history.deliveryTime}
+                                          orderStartPlace={history.pickUp}
+                                          orderFinishPlace={
+                                              history.deliveryAddress
+                                          }
+                                          orderPrice={history.sum}
+                                      />
+                                  </div>
+                              );
+                          })
+                        : filteredOrders.length &&
+                          filteredOrders.map((filtered) => {
+                              return (
+                                  <div
                                       key={filtered._id}
-                                      orderNumber={filtered._id.length}
-                                      orderType={filtered.parcel}
-                                      orderWeight={filtered.weight}
-                                      orderStatus={filtered.status}
-                                      orderTime={filtered.deliveryTime}
-                                      orderStartPlace={filtered.pickUp}
-                                      orderFinishPlace={
-                                          filtered.deliveryAddress
-                                      }
-                                      orderPrice={filtered.sum}
-                                  />
-                              </div>
-                          );
-                      })}
+                                      // onClick={() => showModal(filtered._id)}
+                                      className={s.active__orders__item}
+                                  >
+                                      <ActiveOrders
+                                          key={filtered._id}
+                                          orderNumber={filtered._id.length}
+                                          orderType={filtered.parcel}
+                                          orderWeight={filtered.weight}
+                                          orderStatus={filtered.status}
+                                          orderTime={filtered.deliveryTime}
+                                          orderStartPlace={filtered.pickUp}
+                                          orderFinishPlace={
+                                              filtered.deliveryAddress
+                                          }
+                                          orderPrice={filtered.sum}
+                                      />
+                                  </div>
+                              );
+                          })}
+                </div>
             </div>
         </div>
     );

@@ -143,18 +143,6 @@ const Layout = ({ logout, order: { orders }, getOrders }) => {
             <div className={s.statistics__container}>
                 <div className={s.statistics__title}>Statystyka</div>
                 <Statistics />
-                {/* // profitPrice="123"
-                    // profitQuarterPrice="123"
-                    // profitYearPrice="123"
-                    // profitFullprice="123"
-                    // userMonthQuarantine="123"
-                    // userQuarterQuarantine="132"
-                    // userYearQuarantine="8645"
-                    // userFullQuarantine="123"
-                    // orderMonthQuarantine="58"
-                    // orderQuarterQuarantine="351"
-                    // orderYearQuarantine="45"
-                    // orderFullQuarantine="56" */}
             </div>
         </div>
     );

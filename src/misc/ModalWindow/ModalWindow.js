@@ -29,6 +29,7 @@ const ModalWindow = ({
     status,
     userID,
     paymentType,
+    comments,
     phone,
   } = singleOrder;
 
@@ -78,7 +79,11 @@ const ModalWindow = ({
                   Informacje o użytkowniku
                 </div>
                 <div className={s.modal__details__container}>
-                  <ClientInfo {...{ userID }} {...{ paymentType }} />
+                  <ClientInfo
+                    {...{ userID }}
+                    {...{ paymentType }}
+                    {...{ comments }}
+                  />
                 </div>
               </div>
               {status === "created" && (
@@ -102,7 +107,7 @@ const ModalWindow = ({
                       onClick={() => {
                         patchOrder({
                           id,
-                          status: "canceled",
+                          status: "cancelled",
                         });
                       }}
                     >

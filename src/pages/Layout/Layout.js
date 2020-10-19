@@ -79,7 +79,7 @@ const Layout = ({ logout, order: { orders }, getOrders }) => {
                       orderWeight={active.weight}
                       orderTime={active.deliveryTime}
                       orderStartPlace={active.pickUp}
-                      orderFinishPlace={active.deliveryStreet}
+                      orderFinishPlace={active.deliveryAddress}
                       orderPrice={active.sum}
                       orderStatus={active.status}
                     />

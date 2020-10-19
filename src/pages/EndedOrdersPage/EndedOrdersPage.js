@@ -144,7 +144,7 @@ const EndedOrdersPage = ({
         <div className={s.container}>
           {!filteredOrders.length
             ? ordersHistory &&
-              ordersHistory.map((history) => {
+              ordersHistory.reverse().map((history) => {
                 return (
                   <div
                     key={history._id}

@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./ClientInfo.module.css";
 
-const ClientInfo = ({ userID, paymentType }) => {
+const ClientInfo = ({ userID, paymentType, comments }) => {
   return (
     !!userID && (
       <div className={s.client__info}>
@@ -9,29 +9,37 @@ const ClientInfo = ({ userID, paymentType }) => {
           <div className={s.client__info__item}>
             <div className={s.info__item__key}>Imię:&nbsp;</div>
             <div className={s.info__item__value}>
-              {userID.fName || "Tomasz"}
+              {userID.fName || "Imię nie znalezione"}
             </div>
           </div>
           <div className={s.client__info__item}>
             <div className={s.info__item__key}>Nazwisko: &nbsp;</div>
             <div className={s.info__item__value}>
-              {userID.lName || "Zeliński"}
+              {userID.lName || "Nazwisko nie znalezione"}
             </div>
           </div>
           <div className={s.client__info__item}>
             <div className={s.info__item__key}>Płatność:&nbsp;</div>
-            <div className={s.info__item__value}>{paymentType || "karta"}</div>
+            <div className={s.info__item__value}>
+              {paymentType === "card" ? "karta" : "gotowka"}
+            </div>
           </div>
           <div className={s.client__info__item}>
             <div className={s.info__item__key}>ID:&nbsp;</div>
             <div className={s.info__item__value}>
-              {userID._id || "3aDLv5HTT5789"}
+              {userID._id || "ID nie znaleziony"}
             </div>
           </div>
           <div className={s.client__info__item}>
             <div className={s.info__item__key}>Phone:&nbsp;</div>
             <div className={s.info__item__value}>
-              {userID.phone || "+480202541*"}
+              {userID.phone || "Numer nie znaleziony"}
+            </div>
+          </div>
+          <div className={s.client__info__item}>
+            <div className={s.info__item__value}>
+              Dodatkove uwagi:
+              {comments || "Brak komentarzy"}
             </div>
           </div>
         </div>

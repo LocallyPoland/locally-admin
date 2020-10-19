@@ -80,6 +80,22 @@ const SettingsForm = ({
             </div>
           </div>
           <div className={s.form__inputs__wrapper}>
+            <div className={s.form__delivery__price__title}>
+              Podstawowa cena
+            </div>
+            <div className={s.input__wrapper}>
+              <input
+                className={s.form__delivery__price__input}
+                onChange={handleChange}
+                value={values.priceForCustomer}
+                name="priceForCustomer"
+                onBlur={handleBlur}
+                type="number"
+              />
+              <span className={s.zl}>zł</span>
+            </div>
+          </div>
+          <div className={s.form__inputs__wrapper}>
             <div className={s.form__delivery__time__title}>Czas dostawy</div>
             <div className={s.form__inputs__delivery__row}>
               <span className={s.form__delivery__from}>od</span>
@@ -135,7 +151,7 @@ const formikHOC = withFormik({
   handleSubmit: async (values, { props: { patchSettings } }) => {
     const isSuccess = await patchSettings({
       ...values,
-      priceForCustomer: null,
+      priceForCustomer: +values.priceForCustomer,
       price: +values.price,
       timeStart: +values.timeStart,
       timeStop: +values.timeStop,

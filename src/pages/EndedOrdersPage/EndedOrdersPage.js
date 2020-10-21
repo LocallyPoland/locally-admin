@@ -34,14 +34,14 @@ const EndedOrdersPage = ({
     })();
   }, []);
 
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [orderId, setOrderId] = useState();
+
   const showModal = (id) => {
     document.body.style.overflow = "hidden";
     setModalVisible(true);
     setOrderId(id);
   };
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [orderId, setOrderId] = useState();
-
   return (
     <div className={s.main__container}>
       <header className={s.header}>

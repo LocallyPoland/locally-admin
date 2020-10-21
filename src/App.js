@@ -8,56 +8,55 @@ import Login from "./pages/Login/Login";
 import { getAdminToken } from "./utils/utils";
 import { connect } from "react-redux";
 
-function App() {
-  // const PrivateRoute = ({
-  //   redirectTo,
-  //   component: Component,
-  //   condition,
-  //   state = {},
-  //   ...rest
-  // }) => (
-  //   <Route {...rest}>
-  //     {condition ? (
-  //       <Component />
-  //     ) : (
-  //       <Redirect to={{ pathname: redirectTo, state }} />
-  //     )}
-  //   </Route>
-  // );
-  // const aToken = getAdminToken();
+function App({email}) {
+  const PrivateRoute = ({
+    redirectTo,
+    component: Component,
+    condition,
+    state = {},
+    ...rest
+  }) => (
+    <Route {...rest}>
+      {condition ? (
+        <Component />
+      ) : (
+        <Redirect to={{ pathname: redirectTo, state }} />
+      )}
+    </Route>
+  );
   return (
     <BrowserRouter history={{}}>
       <Notifications />
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route
+        <PrivateRoute
           path="/home"
           component={Layout}
           exact
-          // condition={!aToken}
-          // redirectTo="/"
+          condition={localStorage.getItem('isAdmin') || email}
+          redirectTo="/"
         />
-        <Route
+        <PrivateRoute
           path="/active-orders"
           component={ActiveOrdersPage}
-          // condition={!aToken}
-          // redirectTo="/"
+          condition={localStorage.getItem('isAdmin') || email}
+          redirectTo="/"
         />
-        <Route
+        <PrivateRoute
           path="/ended-orders"
           component={EndedOrdersPage}
-          // condition={!aToken}
-          // redirectTo="/"
+          condition={localStorage.getItem('isAdmin') || email}
+          redirectTo="/"
         />
       </Switch>
     </BrowserRouter>
   );
 }
-// const mapStateToProps = (state) => {
-//   return {
-//     admin: state.user,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+      email: state.admin.email,
+  };
+};
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
@@ -65,5 +64,5 @@ function App() {
 //   };
 // };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
-export default App;
+export default connect(mapStateToProps, {})(App);
+// export default App;

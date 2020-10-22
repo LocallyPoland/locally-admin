@@ -23,7 +23,7 @@ const ModalWindow = ({
         parcel,
         weight,
         deliveryTime,
-        pickup,
+        pickUp,
         deliveryAddress,
         sum,
         status,
@@ -51,6 +51,8 @@ const ModalWindow = ({
         setVisibility(false);
     };
 
+    console.log("del", pickUp);
+
     return (
         !!singleOrder && (
             <div className={visible}>
@@ -76,7 +78,7 @@ const ModalWindow = ({
                                     orderType={parcel || "Typ"}
                                     orderWeight={weight || "Waga"}
                                     orderTime={deliveryTime || "Nie znaleziony"}
-                                    orderStartPlace={pickup || "Nie znaleziony"}
+                                    orderStartPlace={pickUp || "Nie znaleziony"}
                                     orderFinishPlace={
                                         deliveryAddress || "Nie znaleziony"
                                     }

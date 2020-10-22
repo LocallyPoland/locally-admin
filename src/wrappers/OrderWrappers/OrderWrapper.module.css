@@ -1,5 +1,6 @@
 .card {
     width: 100%;
+    min-width: 25rem;
     height: 100%;
     background-color: #e9e9ff;
     border-radius: 2.5rem;
@@ -19,7 +20,16 @@
 @media only screen and (max-width: 1000px) {
     .card {
         padding: 2rem;
+        min-width: 20rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .card {
+        min-width: 10rem;
     }
 }
 @media only screen and (max-width: 400px) {
+    .card {
+        min-width: 5rem;
+    }
 }

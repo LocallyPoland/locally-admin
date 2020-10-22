@@ -10,16 +10,21 @@ import {ReactComponent as LogoutIcon} from "../../assets/images/logout.svg";
 import {logoutAction} from "../../store/actions/adminActions";
 import {connect} from "react-redux";
 import {getOrdersAction} from "../../store/actions/orderActions";
+import openSocket from 'socket.io-client';
 
 const Layout = ({logout, order: {orders}, getOrders, email}) => {
     const [isModalVisible, setModalVisible] = useState(false);
     const [orderId, setOrderId] = useState();
+    const [activeOrders, setActiveOrders] = useState();
 
     const h = useHistory();
     const Logout = () => {
         logout();
         h.push("/");
     };
+    useEffect(() => {
+        setActiveOrders(orders.activeOrders);
+    }, [orders.activeOrders])
 
     useEffect(() => {
         (async () => {
@@ -32,6 +37,27 @@ const Layout = ({logout, order: {orders}, getOrders, email}) => {
         setModalVisible(true);
         setOrderId(id);
     };
+
+    useEffect(() => {
+        const socket = openSocket('https://locally-pl.herokuapp.com');
+        socket.on('connect', function (data) {
+            // console.log(data);
+            try {
+                socket.emit('join', {email});
+            } catch (e) {
+                console.error(e)
+            }
+        });
+        socket.on('changes', (data) => {
+            if (data !== undefined && data?.status === 'created') {
+                setActiveOrders(prevState => [...prevState, data]);
+            }
+        })
+        return () => {
+            setActiveOrders([])
+        }
+    }, [])
+
 
     return (
         <div className={s.main__container}>
@@ -65,8 +91,7 @@ const Layout = ({logout, order: {orders}, getOrders, email}) => {
                         </Link>
                     </div>
                     <div className={s.orders__column}>
-                        {orders.activeOrders &&
-                        orders.activeOrders.map((active) => {
+                        {activeOrders?.map((active) => {
                             return (
                                 <button
                                     key={active._id}

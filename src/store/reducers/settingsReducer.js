@@ -4,7 +4,7 @@ import { SET_SETTINGS } from "../actions/actionTypes";
 const initialState = {
   price: "",
   priceForCustomer: "",
-  switcher: [],
+  switcher: "",
   timeStart: "",
   timeStop: "",
 };

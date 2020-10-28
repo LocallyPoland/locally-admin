@@ -7,7 +7,7 @@ import { getOrdersAction } from "../../store/actions/orderActions";
 import { connect } from "react-redux";
 
 const ActiveOrders = ({
-    orderNumber,
+    numOfOrder,
     orderType,
     orderWeight,
     orderTime,
@@ -25,7 +25,7 @@ const ActiveOrders = ({
                     <div className={s.card__inner}>
                         <div className={s.card__header}>
                             <div className={s.card__title}>
-                                Zamówienie n.{orderNumber}
+                                Zamówienie n.{numOfOrder}
                             </div>
                             <div
                                 className={s.card__status}

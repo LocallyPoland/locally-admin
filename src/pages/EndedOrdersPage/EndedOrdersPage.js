@@ -153,7 +153,7 @@ const EndedOrdersPage = ({
                   >
                     <ActiveOrders
                       key={history._id}
-                      orderNumber={history._id.length}
+                      numOfOrder={history.numOfOrder}
                       orderType={history.parcel}
                       orderWeight={history.weight}
                       orderStatus={history.status}

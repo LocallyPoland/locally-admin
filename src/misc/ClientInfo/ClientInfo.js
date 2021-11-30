@@ -33,7 +33,7 @@ const ClientInfo = ({ userID, paymentType, comments }) => {
                         </div>
                     </div>
                     <div className={s.client__info__item}>
-                        <div className={s.info__item__key}>Phone:&nbsp;</div>
+                        <div className={s.info__item__key}>Telefon:&nbsp;</div>
                         <div className={s.info__item__value}>
                             {`+${userID.phone}` || "Numer nie znaleziony"}
                         </div>

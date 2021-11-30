@@ -17,20 +17,23 @@ const EndedOrdersPage = ({
   filteredOrders,
   filterOrders,
 }) => {
+  console.log('orders history', ordersHistory);
   const sortOptions = [
-    { value: "up", label: "Aktualności" },
-    { value: "down", label: "Najstarszy" },
+    { value: "up", label: "Od najstarszych" },
+    { value: "down", label: "Od najnowszych" },
   ];
   const statusOptions = [
-    { value: "done", label: "Gotowe" },
-    { value: "cancelled", label: "Skasowany" },
+    { value: "done", label: "Wykonane" },
+    { value: "cancelled", label: "Skasowane" },
+    { value: "all", label: "Wszystkie" },
   ];
 
-  const [dataForFilter, setDataForFilter] = useState({});
+  const [dataForFilter, setDataForFilter] = useState({sort: "up"});
 
   useEffect(() => {
     (async () => {
       await getOrders();
+      console.log('fetching');
     })();
   }, []);
 
@@ -79,9 +82,11 @@ const EndedOrdersPage = ({
                 setDataForFilter({ ...dataForFilter, status: e.value })
               }
               value={
+                // eslint-disable-next-line no-nested-ternary
                 dataForFilter.status === "done"
-                  ? statusOptions[0].label
-                  : statusOptions[1].label
+                  ? statusOptions[0].label :
+                  dataForFilter.status === "cancelled" 
+                  ? statusOptions[1].label : statusOptions[2].label
               }
             />
           </div>
@@ -132,19 +137,16 @@ const EndedOrdersPage = ({
           </button>
         </div>
       </div>
-      <div className={s.container}>
-        <div className={s.ended__orders__title}>
-          Zamówienia od <span className={s.title__date}>21.08.20</span>
-        </div>
         {!filteredOrders.length ? (
           <h2 className={s.title__date}>Wszystkie zamówienia </h2>
         ) : (
           <h2 className={s.title__date}>Przefiltrowane zamówienia </h2>
         )}
+      <div className={s.container}>
         <div className={s.container}>
           {!filteredOrders.length
             ? ordersHistory &&
-              ordersHistory.reverse().map((history) => {
+              ordersHistory.map((history) => {
                 return (
                   <div
                     key={history._id}
@@ -161,6 +163,7 @@ const EndedOrdersPage = ({
                       orderStartPlace={history.pickUp}
                       orderFinishPlace={history.deliveryAddress}
                       orderPrice={history.sum}
+                      createdAt={history.createdAt}
                     />
                   </div>
                 );
@@ -183,6 +186,7 @@ const EndedOrdersPage = ({
                       orderStartPlace={filtered.pickUp}
                       orderFinishPlace={filtered.deliveryAddress}
                       orderPrice={filtered.sum}
+                      createdAt={filtered.createdAt}
                     />
                   </div>
                 );

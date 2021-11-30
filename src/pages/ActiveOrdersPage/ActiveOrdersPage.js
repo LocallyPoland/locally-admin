@@ -11,6 +11,7 @@ const ActiveOrdersPage = ({
     orders: { activeOrders },
   },
 }) => {
+  console.log('active orders', activeOrders);
   const showModal = (id) => {
     document.body.style.overflow = "hidden";
     setModalVisible(true);
@@ -38,7 +39,7 @@ const ActiveOrdersPage = ({
       />
       <div className={s.container}>
         {activeOrders &&
-          activeOrders.reverse().map((active) => {
+          activeOrders.map((active) => {
             return (
               <div
                 key={active._id}
@@ -56,6 +57,7 @@ const ActiveOrdersPage = ({
                   orderFinishPlace={active.deliveryAddress}
                   orderPrice={active.sum}
                   orderStatus={active.status}
+                  createdAt={active.createdAt}
                 />
               </div>
             );

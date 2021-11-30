@@ -28,13 +28,6 @@
   width: 100%;
 }
 
-.container {
-  width: 100%;
-  height: 100%;
-  margin-top: 2.5rem;
-  padding: 1.25rem 5rem;
-}
-
 .ended__orders__title {
   width: 100%;
   text-align: center;
@@ -44,6 +37,7 @@
 }
 
 .title__date {
+  margin-top: 1.25rem;
   text-align: center;
   color: #4643d2;
   width: 100%;
@@ -108,11 +102,11 @@
 .container {
   width: 100%;
   height: 100%;
-  margin-top: 2.5rem;
+  margin-top: 1.25rem;
   padding: 1.25rem 5rem;
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
   box-sizing: border-box;
 }
 

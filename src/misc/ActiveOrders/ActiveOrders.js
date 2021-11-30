@@ -16,12 +16,14 @@ const ActiveOrders = ({
     orderPrice,
     orderStatus,
     getOrders,
+    createdAt,
     _id,
 }) => {
+    console.log('orderTime', orderTime);
     return (
         <div className={s.active__orders}>
             <div className={s.active__orders__inner}>
-                <ActiveOrderWrapper>
+                <ActiveOrderWrapper backgroundColor={orderTime !== null ? null : "#ffcbcb"}>
                     <div className={s.card__inner}>
                         <div className={s.card__header}>
                             <div className={s.card__title}>
@@ -67,14 +69,33 @@ const ActiveOrders = ({
                                             <div
                                                 className={s.order__time__value}
                                             >
-                                                {new Date(orderTime)
+                                                {`${new Date(orderTime)
+                                                    .toLocaleDateString()}
+                                                    ${" "}
+                                                    ${new Date(orderTime)
                                                     .toUTCString()
-                                                    .split(" ")
-                                                    .slice(0, 5)
-                                                    .join(" ")}
+                                                    .split(" ")[4]}`}
                                             </div>
                                         </div>
                                     ) : null}
+                                        <div className={s.card__order__time}>
+                                            <div
+                                                className={s.order__time__text}
+                                            >
+                                                utworzone:
+                                            </div>
+                                            <div
+                                                className={s.order__time__value}
+                                            >
+                                                {createdAt ? `${new Date(createdAt)
+                                                    .toLocaleDateString()}
+                                                    ${" "}
+                                                    ${new Date(createdAt)
+                                                    .toUTCString()
+                                                    .split(" ")[4]}`
+                                                    : "Nie znaleziony"}
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                             <div className={s.card__content__bottom}>

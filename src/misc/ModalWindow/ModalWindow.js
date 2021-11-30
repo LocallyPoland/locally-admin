@@ -32,7 +32,9 @@ const ModalWindow = ({
     comments,
     phone,
     numOfOrder,
+    createdAt
   } = singleOrder;
+  console.log('check', singleOrder);
 
   useEffect(() => {
     id &&
@@ -84,10 +86,11 @@ const ModalWindow = ({
                   numOfOrder={numOfOrder || "id"}
                   orderType={parcel || "Typ"}
                   orderWeight={weight || "Waga"}
-                  orderTime={deliveryTime || "Nie znaleziony"}
+                  orderTime={deliveryTime}
                   orderStartPlace={pickUp || "Nie znaleziony"}
                   orderFinishPlace={deliveryAddress || "Nie znaleziony"}
                   orderPrice={sum || "Cena nie znaleziona"}
+                  createdAt={createdAt}
                 />
               </div>
             </div>

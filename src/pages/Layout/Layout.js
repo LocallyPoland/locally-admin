@@ -15,7 +15,8 @@ import openSocket from "socket.io-client";
 const Layout = ({ logout, order: { orders }, getOrders, email }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [orderId, setOrderId] = useState();
-  const [activeOrders, setActiveOrders] = useState();
+  const [activeOrders, setActiveOrders] = useState([]);
+  const [ordersHistory, setOrdersHistory] = useState([]);
 
   const h = useHistory();
   const Logout = () => {
@@ -23,7 +24,7 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
     h.push("/");
   };
   useEffect(() => {
-    setActiveOrders(orders.activeOrders);
+    setActiveOrders(orders?.activeOrders?.reverse());
   }, [orders.activeOrders]);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
   };
 
   useEffect(() => {
-    const socket = openSocket("https://locally-pl.herokuapp.com");
+    const socket = openSocket("https://locally.com.pl");
     socket.on("connect", function (data) {
       // console.log(data);
       try {
@@ -57,6 +58,10 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
       setActiveOrders([]);
     };
   }, []);
+
+  useEffect(() => {
+    setOrdersHistory(orders?.ordersHistory?.reverse())
+  }, [orders])
 
   return (
     <div className={s.main__container}>
@@ -92,7 +97,7 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
             </Link>
           </div>
           <div className={s.orders__column}>
-            {activeOrders?.reverse()?.map((active) => {
+            {activeOrders?.map((active) => {
               return (
                 <button
                   key={active._id}
@@ -108,6 +113,7 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
                     orderFinishPlace={active.deliveryAddress}
                     orderPrice={active.sum}
                     orderStatus={active.status}
+                    createdAt={active.createdAt}
                   />
                 </button>
               );
@@ -127,8 +133,7 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
             </Link>
           </div>
           <div className={s.orders__column}>
-            {orders.ordersHistory &&
-              orders.ordersHistory.map((history) => {
+            {ordersHistory?.map((history) => {
                 return (
                   <button
                     key={history._id}
@@ -144,6 +149,7 @@ const Layout = ({ logout, order: { orders }, getOrders, email }) => {
                       orderFinishPlace={history.deliveryAddress}
                       orderPrice={history.sum}
                       orderStatus={history.status}
+                      createdAt={history.createdAt}
                     />
                   </button>
                 );
